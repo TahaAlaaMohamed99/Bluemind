@@ -1,0 +1,9 @@
+.Auth_Header {
+  @apply flex items-center justify-between w-full h-16;
+}
+.Auth_Header .logo {
+  @apply text-secondary dark:text-primary;
+}
+.Auth_Header .actions {
+  @apply flex items-center gap-2;
+}/*# sourceMappingURL=styles.css.map */

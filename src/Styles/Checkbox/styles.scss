@@ -1,0 +1,46 @@
+.form_check{
+    @apply flex items-center gap-2;
+    .checkbox-wrapper {
+      @apply flex items-center cursor-pointer relative;
+      .input_checkbox,.input_radio {
+        @apply h-4 w-4 cursor-pointer  bg-background-light dark:bg-background-dark appearance-none rounded  border border-border-light dark:border-border-dark checked:bg-primary dark:checked:bg-primary checked:border-primary dark:checked:border-primary;
+      &.input_radio{
+        @apply rounded-full
+      }
+      }
+      .checkbox {
+        @apply absolute text-background-cardLight  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none;
+      }
+    }
+    label {
+      @apply text-sm font-medium mb-0 text-titleColor-light dark:text-titleColor-dark;
+      margin-bottom: 0 !important;
+  
+    }
+    &.Card_Checkbox {
+      @apply justify-between p-2 rounded-lg bg-background-light cursor-pointer border-[.1187rem] dark:bg-background-dark h-[2.875rem] mb-5;
+      &.default {
+        @apply border-border-light  dark:border-border-dark;
+        label {
+          @apply text-titleColor-light dark:text-titleColor-dark;
+        }
+      }
+      &.disabled {
+        @apply border-border-light opacity-85 dark:border-border-dark cursor-default;
+        .input_checkbox {
+          @apply cursor-auto;
+        }
+        
+      }
+      &.active {
+        @apply border-primary dark:border-primary;
+        label {
+          @apply text-primary dark:text-primary;
+        }
+        &.disabled {
+          @apply opacity-75;
+        }
+      }
+    }
+  }
+  

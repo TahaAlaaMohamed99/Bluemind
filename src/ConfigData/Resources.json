@@ -1,0 +1,211 @@
+{
+    "title": "Bluemind",
+    "transformDataIntoDecisions": {
+        "en": "Transform Data into Decisions.",
+        "ar": "حوّل البيانات إلى قرارات"
+    },
+    "blueMindIntro": {
+        "en": "Unlock the power of AI with BlueMind. A secure and intelligent analytics platform designed to turn complex data into clear, actionable insights.",
+        "ar": "افتح آفاق قوة الذكاء الاصطناعي مع BlueMind، منصة تحليلات آمنة وذكية مصممة لتحويل البيانات المعقدة إلى رؤى واضحة وقابلة للتنفيذ."
+    },
+    "backToWebsite": {
+        "en": "Back to Website",
+        "ar": "العودة إلى الموقع"
+    },
+    "logInToYourAccount": {
+        "en": "Log in to your account",
+        "ar": "تسجيل الدخول إلى حسابك"
+    },
+    "welcomeBackMessage": {
+        "en": "Welcome back! Please enter your details.",
+        "ar": "مرحبًا بعودتك! يرجى إدخال بياناتك."
+    },
+    "email": {
+        "en": "Email",
+        "ar": "البريد الإلكتروني"
+    },
+    "enterYourEmail": {
+        "en": "Enter your email",
+        "ar": "أدخل بريدك الإلكتروني"
+    },
+    "emailRequired": {
+        "en": "Email is required",
+        "ar": "البريد الإلكتروني مطلوب"
+    },
+    "invalidEmailFormat": {
+        "en": "Please enter a valid email that contains @ and .com",
+        "ar": "يرجى إدخال بريد إلكتروني صحيح يحتوي على @ و .com"
+    },
+    "password": {
+        "en": "Password",
+        "ar": "كلمة المرور"
+    },
+    "enterYourPassword": {
+        "en": "Enter your password",
+        "ar": "أدخل كلمة المرور الخاصة بك"
+    },
+    "passwordRequired": {
+        "en": "Password is required",
+        "ar": "كلمة المرور مطلوبة"
+    },
+    "passwordInvalid": {
+        "en": "Invalid password",
+        "ar": "كلمة المرور غير صالحة"
+    },
+    "passwordMinLength": {
+        "en": "Password must be at least 6 characters",
+        "ar": "يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل"
+    },
+    "passwordMustIncludeSpecial": {
+        "en": "Password must include at least one special character",
+        "ar": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل"
+    },
+    "passwordMustIncludeCapital": {
+        "en": "Password must include at least one capital letter",
+        "ar": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"
+    },
+    "rememberMe": {
+        "en": "Remember for 30 days",
+        "ar": "تذكرني لمدة 30 يومًا"
+    },
+    "forgotPassword": {
+        "en": "Forgot password?",
+        "ar": "هل نسيت كلمة المرور؟"
+    },
+    "ForgotPassword": {
+        "en": "Forgot password",
+        "ar": "هل نسيت كلمة المرور"
+    },
+    "signIn": {
+        "en": "Sign in",
+        "ar": "تسجيل الدخول"
+    },
+    "signInWithGoogle": {
+        "en": "Sign in with Google",
+        "ar": "تسجيل الدخول باستخدام جوجل"
+    },
+    "signInWithFacebook": {
+        "en": "Sign in with Facebook",
+        "ar": "تسجيل الدخول باستخدام فيسبوك"
+    },
+    "noAccount": {
+        "en": "Don’t have an account?",
+        "ar": "ليس لديك حساب؟"
+    },
+    "createAccount": {
+        "en": "Create an account",
+        "ar": "إنشاء حساب"
+    },
+    "backToLogin": {
+        "en": "Back to Login",
+        "ar": "العودة لتسجيل الدخول"
+    },
+    "resetPasswordPrompt": {
+        "en": "Please enter your email to reset the password",
+        "ar": "يرجى إدخال بريدك الإلكتروني لإعادة تعيين كلمة المرور"
+    },
+    "sendOTP": {
+        "en": "Send OTP",
+        "ar": "إرسال رمز التحقق"
+    },
+    "checkYourEmail": {
+        "en": "Check your email",
+        "ar": "تحقق من بريدك الإلكتروني"
+    },
+    "enterCodeTo": {
+        "en": "Enter the 5-digit code sent to",
+        "ar": "أدخل الرمز المكون من 5 أرقام المرسل إلى"
+    },
+    "toResetPassword": {
+        "en": "to reset password.",
+        "ar": "لإعادة تعيين كلمة المرور."
+    },
+    "verifyCode": {
+        "en": "Verify Code",
+        "ar": "تحقق من الرمز"
+    },
+    "resendEmail": {
+        "en": "Resend email",
+        "ar": "إعادة إرسال البريد الإلكتروني"
+    },
+    "notReceivedEmail": {
+        "en": "Haven’t got the email yet?",
+        "ar": "لم يصلك البريد الإلكتروني بعد؟"
+    },
+    "setNewPassword": {
+        "en": "Set a new password",
+        "ar": "قم بتعيين كلمة مرور جديدة"
+    },
+    "createNewPasswordHint": {
+        "en": "Create a new password. Ensure it differs from previous ones for security.",
+        "ar": "أنشئ كلمة مرور جديدة. تأكد من أنها تختلف عن الكلمات السابقة لضمان الأمان."
+    },
+    "confirmPasswordRequired": {
+        "en": "Confirm password is required",
+        "ar": "يجب تأكيد كلمة المرور"
+    },
+    "confirmPassword": {
+        "en": "Confirm Password",
+        "ar": "تأكيد كلمة المرور"
+    },
+    "enterconfirmPassword": {
+        "en": "Enter confirm password",
+        "ar": "أدخل تأكيد كلمة المرور"
+    },
+    "passwordsDoNotMatch": {
+        "en": "Passwords do not match",
+        "ar": "كلمات المرور غير متطابقة"
+    },
+    "resetPassword": {
+        "en": "Reset Password",
+        "ar": "إعادة تعيين كلمة المرور"
+    },
+    "fullName": {
+        "en": "Full Name",
+        "ar": "الاسم الكامل"
+    },
+    "enterYourFullName": {
+        "en": "Enter your full name",
+        "ar": "أدخل اسمك الكامل"
+    },
+    "fullNameRequired": {
+        "en": "Full name is required",
+        "ar": "الاسم الكامل مطلوب"
+    },
+    "fullNameNoNumbers": {
+        "en": "Full name must not contain numbers",
+        "ar": "يجب ألا يحتوي الاسم الكامل على أرقام"
+    },
+    "fullNameMinLength": {
+        "en": "Full name must be at least 5 characters",
+        "ar": "يجب أن يكون الاسم الكامل 5 أحرف على الأقل"
+    },
+    "phoneNumber": {
+        "en": "Phone Number",
+        "ar": "رقم الهاتف"
+    },
+    "enterPhoneNumber": {
+        "en": "Enter your phone number",
+        "ar": "أدخل رقم هاتفك"
+    },
+    "phoneNumberRequired": {
+        "en": "Phone number is required",
+        "ar": "رقم الهاتف مطلوب"
+    },
+    "invalidPhoneNumberFormat": {
+        "en": "Please enter a valid phone number",
+        "ar": "يرجى إدخال رقم هاتف صحيح"
+    },
+    "agreeTerms": {
+        "en": "I agree to",
+        "ar": "أوافق على"
+    },
+    "termsAndConditions": {
+        "en": "Terms and Conditions",
+        "ar": "الشروط والظروف"
+    },
+    "toVerifyYourEmail": {
+        "en": "to verify your email.",
+        "ar": "لتحقق من بريدك الإلكتروني."
+    }
+}

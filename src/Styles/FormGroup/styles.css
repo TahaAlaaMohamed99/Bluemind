@@ -1,0 +1,40 @@
+.form_group {
+  @apply w-full flex flex-col	mb-5 relative;
+}
+.form_group label {
+  @apply text-sm capitalize font-medium text-titleColor-light dark:text-titleColor-dark mb-2;
+}
+.form_group label.focused {
+  @apply text-primary dark:text-primary;
+}
+.form_group .input_text,
+.form_group .input_textarea {
+  @apply p-2 h-11 w-full text-titleColor-light dark:text-titleColor-dark bg-white dark:bg-background-dark  border-border-light  border-[.1187rem] rounded-[.25rem]  dark:border-border-dark  text-sm placeholder:text-textColor-light dark:placeholder:text-titleColor-dark placeholder:text-opacity-80 focus:border-primary  dark:focus:border-primary outline-none focus-visible:border-primary dark:focus-visible:border-primary;
+}
+.form_group .input_text.opt_input,
+.form_group .input_textarea.opt_input {
+  @apply w-14 h-14 rounded-lg;
+}
+.form_group .input_text.input_textarea,
+.form_group .input_textarea.input_textarea {
+  @apply max-h-20 min-h-11;
+}
+.form_group.form_group_icon .input_text {
+  @apply pe-8;
+}
+.form_group.form_group_icon .icon_show_Password {
+  @apply absolute end-0 h-11 w-8 flex justify-center items-center top-0 cursor-pointer text-textColor-light dark:text-textColor-dark;
+}
+.form_group.error_group label {
+  @apply text-error;
+}
+.form_group.error_group label.focused {
+  @apply text-error;
+}
+.form_group.error_group .input_text,
+.form_group.error_group .custom-date-picker {
+  @apply border-error;
+}
+.form_group .error_text {
+  @apply text-error  text-[.75rem] font-medium  mt-1;
+}/*# sourceMappingURL=styles.css.map */
