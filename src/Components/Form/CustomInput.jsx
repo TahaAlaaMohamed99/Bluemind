@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import TranslationText from "../TranslationText";
 import { useSelector } from "react-redux";
 import getTranslationText from "../../Utils/getTranslationText";
-import '../../Styles/FormGroup/styles.css';
+
 /**
  * CustomInput Component:
  * This component renders a customizable input field with various types (e.g., text, password).
  * It handles validation, translations, and custom styling. It also includes a password visibility toggle for password fields.
- * 
+ *
  * @param {string} label - The label to display for the input field.
  * @param {string} type - The type of the input (e.g., text, password).
  * @param {string} value - The current value of the input field.
@@ -42,14 +42,12 @@ export default function CustomInput({
   icon,
   ResourcePage = "",
   dir,
-  ref = null
+  ref = null,
 }) {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleFocus = () => setIsFocused(true);
-  const currentLanguage = useSelector(
-    (state) => state.lang
-  );
+  const currentLanguage = useSelector((state) => state.lang);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -57,26 +55,30 @@ export default function CustomInput({
     setIsFocused(false);
     if (onBlur) onBlur(event);
   };
-  const textPlaceholder = getTranslationText({ page: ResourcePage, title: placeholder, lang: currentLanguage });
+  const textPlaceholder = getTranslationText({
+    page: ResourcePage,
+    title: placeholder,
+    lang: currentLanguage,
+  });
   return (
     <div
-      className={`form_group ${touched && errors ? " error_group " : ""} ${className || ""
-        }`}
+      className={`form_group ${touched && errors ? " error_group " : ""} ${
+        className || ""
+      }`}
     >
       {label && (
-        <label htmlFor={`bluemind_${name}`} className={isFocused ? "focused" : disabled ? "disabled" : ""}>
+        <label
+          htmlFor={`bluemind_${name}`}
+          className={isFocused ? "focused" : disabled ? "disabled" : ""}
+        >
           <TranslationText title={label} page={ResourcePage} />
-          {Required &&
-            <span className="text-error">*</span>
-          }
+          {Required && <span className="text-error">*</span>}
         </label>
       )}
       <div className="relative">
         <input
           type={showPassword ? "text" : type}
-          placeholder={
-            textPlaceholder
-          }
+          placeholder={textPlaceholder}
           dir={dir}
           disabled={disabled}
           value={value}

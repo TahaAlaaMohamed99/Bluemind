@@ -42,13 +42,13 @@
       }
     }
   }
-  .steper{
+  .steper {
     @apply grid grid-cols-3 items-center lg:w-5/12 w-6/12 m-auto justify-center gap-4;
-    .steper_item{
+    .steper_item {
       @apply flex items-center justify-center rounded-lg bg-textColor-light h-1.5  dark:bg-textColor-dark gap-2;
-      &.active{
+      &.active {
         @apply bg-secondary dark:bg-primary;
       }
+    }
   }
-}
 }

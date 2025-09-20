@@ -1,13 +1,14 @@
-import React from 'react'
-import CustomInput from '../../Components/Form/CustomInput'
-import TranslationText from '../../Components/TranslationText'
+import React from "react";
+import CustomInput from "../../Components/Form/CustomInput";
+import TranslationText from "../../Components/TranslationText";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { NavLink } from 'react-router-dom';
-import CustomCheckbox from '../../Components/Form/CustomCheckbox';
-import CustomeBtn from '../../Components/CustomeBtn';
-import { IconFacebook, IconGoogle } from '../../Assets/Icons/IconsSvg';
-import { schemaLogin } from '../../Utils/ValidationUtils';
+import { NavLink } from "react-router-dom";
+import CustomCheckbox from "../../Components/Form/CustomCheckbox";
+import CustomeBtn from "../../Components/CustomeBtn";
+import { IconFacebook, IconGoogle } from "../../Assets/Icons/IconsSvg";
+import { schemaLogin } from "../../Utils/ValidationUtils";
+import Api from "../../Api/api";
 
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -21,32 +22,44 @@ export default function Login() {
     resolver: yupResolver(schemaLogin),
     mode: "onChange",
     defaultValues: {
-      email: '',
-      password: '',
-      rememberMe: false
-    }
+      email: "",
+      password: "",
+      rememberMe: false,
+    },
   });
 
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setIsLoading(!isLoading);
-    console.log("Login Data:", data);
-    // هنا ممكن تضيف نداء API لتسجيل الدخول
+
+    const formData = new FormData();
+    formData.append("email", data.email);
+    formData.append("password", data.password);
+    Api.post("auth/login/", formData);
+
+    const response = await Api.post("auth/login/", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    });
   };
 
   return (
-    <div className='from_editor_Auth'>
-      <div className='text_Form_Layout'>
-        <h1 className='title'>
+    <div className="from_editor_Auth">
+      <div className="text_Form_Layout">
+        <h1 className="title">
           <TranslationText title="logInToYourAccount" />
         </h1>
-        <p className='description'>
+        <p className="description">
           <TranslationText title="welcomeBackMessage" />
         </p>
       </div>
-      <form autoComplete="off"
-        noValidate="noValidate" onSubmit={handleSubmit(onSubmit)} className="Auth-form">
-
+      <form
+        autoComplete="off"
+        noValidate="noValidate"
+        onSubmit={handleSubmit(onSubmit)}
+        className="Auth-form"
+      >
         <Controller
           name="email"
           control={control}
@@ -89,39 +102,38 @@ export default function Login() {
 
           <NavLink
             className="font-semibold text-sm text-secondary dark:text-primary hover:underline"
-            to={`/ForgotPassword/${btoa(1)}/${btoa('key')}`}
+            to={`/ForgotPassword/${btoa(1)}/${btoa("key")}`}
           >
             <TranslationText title="forgotPassword" />
-
           </NavLink>
         </div>
         <CustomeBtn
-          type='submit'
+          type="submit"
           title="signIn"
           isLoading={isLoading}
           className="btn-primary w-full"
         />
-        <div className='grid grid-cols-2 gap-4 mt-6'>
-        <CustomeBtn
-          type='button'
-          icon={<IconGoogle className="w-6 h-6" />}
-          title="signInWithGoogle"
-          className="btn-default btn_lg  w-full"
-        />
+        <div className="grid grid-cols-2 gap-4 mt-6">
           <CustomeBtn
-          type='button'
-          icon={<IconFacebook className="w-6 h-6" />}
-          title="signInWithFacebook"
-          className="btn-default btn_lg  w-full"
-        />
+            type="button"
+            icon={<IconGoogle className="w-6 h-6" />}
+            title="signInWithGoogle"
+            className="btn-default btn_lg  w-full"
+          />
+          <CustomeBtn
+            type="button"
+            icon={<IconFacebook className="w-6 h-6" />}
+            title="signInWithFacebook"
+            className="btn-default btn_lg  w-full"
+          />
         </div>
       </form>
-      <div className=' text-center mt-2'>
-        <p className='text-sm text-titleColor-light dark:text-titleColor-dark'> 
+      <div className=" text-center mt-2">
+        <p className="text-sm text-titleColor-light dark:text-titleColor-dark">
           <TranslationText title="noAccount" />
           <NavLink
             className="font-semibold ms-0.5  text-secondary dark:text-primary hover:underline"
-            to={`/Register/${btoa(1)}/${btoa('key')}`}
+            to={`/Register/${btoa(1)}/${btoa("key")}`}
           >
             <TranslationText title="createAccount" />
           </NavLink>

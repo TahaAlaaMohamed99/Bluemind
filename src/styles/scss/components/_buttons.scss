@@ -3,7 +3,7 @@
   .icon_btn {
     @apply flex justify-center items-center;
   }
-  &.justify_between{
+  &.justify_between {
     @apply justify-between;
   }
   &.btn-default {
@@ -44,7 +44,7 @@
     @apply px-4 py-2.5 text-sm;
     .icon_btn {
       @apply w-6 h-6;
-      svg{
+      svg {
         @apply w-full h-full;
       }
     }
