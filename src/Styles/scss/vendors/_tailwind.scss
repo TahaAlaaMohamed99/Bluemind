@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn_actions {
+  @apply lg:min-w-9 lg:h-9  min-w-8 h-8 p-2 text-titleColor-light dark:text-titleColor-dark   bg-background-cardLight dark:bg-background-cardDark rounded-md flex items-center justify-center cursor-pointer;
+  &:hover {
+    @apply text-secondary dark:text-primary;
+  }
+  svg {
+    @apply w-full h-full;
+  }
+  .title {
+    @apply text-base font-semibold capitalize;
+  }
+}

@@ -3,12 +3,11 @@ import CustomInput from "../../Components/Form/CustomInput";
 import TranslationText from "../../Components/TranslationText";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { NavLink } from "react-router-dom";
-import CustomCheckbox from "../../Components/Form/CustomCheckbox";
-import CustomeBtn from "../../Components/CustomeBtn";
-import { IconFacebook, IconGoogle } from "../../Assets/Icons/IconsSvg";
-import { schemaLogin } from "../../Utils/ValidationUtils";
-import axios from "axios";
+import { NavLink } from 'react-router-dom';
+import CustomCheckbox from '../../Components/Form/CustomCheckbox';
+import CustomeBtn from '../../Components/CustomeBtn';
+import { IconFacebook, IconGoogle } from '../../Assets/Icons/IconsSvg';
+import { schemaLogin } from '../../Utils/ValidationUtils';
 
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -27,7 +26,6 @@ export default function Login() {
       rememberMe: false,
     },
   });
-
 
   const onSubmit = (data) => {
     const formData = new FormData();
@@ -49,8 +47,6 @@ export default function Login() {
       }
     });
   };
-  
-  
 
   return (
     <div className="from_editor_Auth">
