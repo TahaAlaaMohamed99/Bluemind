@@ -20,7 +20,7 @@ function App() {
 
         <Route path="/app/*" element={<MainRoutes />} />
 
-        {/* <Route path="*" element={<Navigate to="/auth/login" replace />} /> */}
+        <Route path="*" element={<Navigate to="/auth/login" replace />} />
       </Routes>
     </Router>
   );
