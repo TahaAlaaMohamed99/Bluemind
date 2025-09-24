@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   resetBreadcrumb,
   setBreadcrumb,
-} from "../../Store/slices/layout-slice";
+} from "../../../Store/slices/layout-slice";
+import { useNavigate } from "react-router-dom";
 
-const MediaMonitoringPage = () => {
+const MediaMonitoring = () => {
+  const navigate = useNavigate();
   const [currentView, setCurrentView] = useState("cards");
   const dispatch = useDispatch();
   useEffect(() => {
@@ -41,19 +43,6 @@ const MediaMonitoringPage = () => {
         isAdd: false,
       },
     ];
-
-    const getCardColors = (color) => {
-      switch (color) {
-        case "blue":
-          return "border-blue-200 hover:border-blue-300 bg-blue-50";
-        case "green":
-          return "border-green-200 hover:border-green-300 bg-green-50";
-        case "purple":
-          return "border-purple-200 hover:border-purple-300 bg-purple-50";
-        default:
-          return "border-gray-200 hover:border-gray-300 bg-gray-50";
-      }
-    };
 
     const getIconColors = (color) => {
       switch (color) {
@@ -134,13 +123,12 @@ const MediaMonitoringPage = () => {
     );
   };
   const handleCardClick = (cardId) => {
-    setCurrentView(cardId);
     if (cardId === "add") {
-      dispatch(setBreadcrumb(["Media", "Media Monitoring", "Add"]));
+      navigate(`/app/mediaMonitoring/Add`);
     } else if (cardId === "plans") {
-      dispatch(setBreadcrumb(["Media", "Media Monitoring", "Plans"]));
+      navigate(`/app/mediaMonitoring/${cardId}`);
     } else if (cardId === "roster") {
-      dispatch(setBreadcrumb(["Media", "Media Monitoring", "Roster"]));
+      navigate(`/app/mediaMonitoring/${cardId}`);
     }
   };
 
@@ -310,4 +298,4 @@ const MediaMonitoringPage = () => {
     </div>
   );
 };
-export default MediaMonitoringPage;
+export default MediaMonitoring;

@@ -65,7 +65,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
         {
           id: "house-prediction",
           title: "House Prediction",
-          route: "/media/house-prediction",
+          route: "housePrediction",
         },
       ],
     },

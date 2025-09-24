@@ -16,12 +16,6 @@ export default function MainLayout() {
       <main>
         <Outlet />
       </main>
-      {/* <BlueMindSidebar /> */}
-      {/* <div className="h-screen flex flex-col bg-gray-50">
-        <div className="flex flex-1 overflow-hidden">
-         
-        </div>
-      </div> */}
     </>
   );
 }

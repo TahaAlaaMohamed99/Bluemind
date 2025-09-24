@@ -11,9 +11,14 @@
   overflow-y: auto;
   transition: left 0.3s ease, width 0.3s ease;
   z-index: 999;
+
   &.collapsed {
-    left: -280px;
+    left: -274px;
+    &:hover {
+      left: 0;
+    }
   }
+
   * {
     user-select: none;
   }
