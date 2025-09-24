@@ -1,6 +1,6 @@
 import React from "react";
 import TranslationText from "../TranslationText";
-import "../../Styles/Checkbox/styles.css";
+
 export default function CustomCheckbox({
   value,
   label,
@@ -38,7 +38,7 @@ export default function CustomCheckbox({
         </span>
       </div>
       <label htmlFor={label}>
-       <TranslationText title={label} page={ResourcePage} /> 
+        <TranslationText title={label} page={ResourcePage} />
       </label>
     </div>
   );

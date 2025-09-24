@@ -1,0 +1,54 @@
+.Auth_Layout {
+  @apply grid grid-cols-2 lg:gap-40 gap-20 justify-between min-h-dvh h-full w-full  lg:px-10 lg:py-5 md:px-6 md:py-3 p-4 bg-background-light dark:bg-background-dark;
+  .text_Layout {
+    @apply lg:pt-14 pt-12;
+    .title {
+      @apply text-4xl font-semibold text-titleColor-light dark:text-titleColor-dark mb-4;
+    }
+    p {
+      @apply text-2xl font-medium text-textColor-light dark:text-textColor-dark;
+    }
+  }
+  .container_Form_Layout {
+    @apply flex flex-col h-full bg-background-cardLight dark:bg-background-cardDark rounded-xl 2xl:p-8 md:p-6 p-4;
+    .header_Form_Layout {
+      @apply flex justify-end;
+      .Back_To_Web {
+        @apply flex opacity-85 text-sm font-semibold py-1 px-2.5 h-9  items-center gap-2 border-titleColor-light dark:border-titleColor-dark border-[1.8px] text-titleColor-light dark:text-titleColor-dark cursor-pointer rounded-lg;
+        .Icon_Back {
+          @apply w-5 h-5;
+          svg {
+            @apply w-full h-full;
+          }
+        }
+      }
+    }
+  }
+  .from_editor_Auth {
+    @apply flex flex-col items-center 2xl:w-3/4 w-11/12 m-auto gap-8 justify-center h-full py-8;
+    .title {
+      @apply text-2xl font-semibold text-center text-secondary dark:text-primary mb-1;
+    }
+    .description {
+      @apply text-lg font-medium text-center text-titleColor-light dark:text-titleColor-dark;
+    }
+    .Auth-form {
+      @apply w-full flex flex-col;
+    }
+    .btn_back {
+      @apply flex items-center font-semibold text-base gap-2 text-titleColor-light dark:text-titleColor-dark;
+      .icon_back {
+        @apply text-secondary dark:text-primary;
+      }
+    }
+  }
+  .steper {
+    @apply grid grid-cols-3 items-center lg:w-5/12 w-6/12 m-auto justify-center gap-4;
+    .steper_item {
+      @apply flex items-center justify-center rounded-lg bg-textColor-light h-1.5  dark:bg-textColor-dark gap-2;
+      &.active {
+        @apply bg-secondary dark:bg-primary;
+      }
+    }
+  }
+}

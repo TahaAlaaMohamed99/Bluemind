@@ -1,0 +1,263 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: #f3f6fd;
+  border-right: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: left 0.3s ease, width 0.3s ease;
+  z-index: 999;
+
+  &.collapsed {
+    left: -274px;
+    &:hover {
+      left: 0;
+    }
+  }
+
+  * {
+    user-select: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+
+    &:hover {
+      background: #9ca3af;
+    }
+  }
+}
+
+.sidebar-header {
+  // padding: 1.3rem;
+  padding: 24px;
+  border-bottom: 1px solid #c2d8ee;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 991px) {
+    border-bottom: unset;
+  }
+  @media (min-width: 992px) {
+    .sidebar-toggle {
+      display: none;
+    }
+  }
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-content {
+  flex: 1;
+  padding: 16px 0;
+}
+
+.sidebar-header-text {
+  padding: 12px 16px 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 16px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.sidebar-item {
+  margin: 0 8px 2px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+
+  &:hover {
+    background-color: #f3f4f6;
+  }
+
+  &.active {
+    .sidebar-title {
+      color: #1d4ed8;
+      font-weight: 500;
+    }
+
+    .sidebar-icon {
+      color: #1d4ed8;
+    }
+
+    .sidebar-arrow {
+      color: #1d4ed8;
+    }
+  }
+
+  &.has-active-child {
+    .sidebar-title {
+      color: #374151;
+      font-weight: 500;
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.sidebar-item-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  gap: 12px;
+
+  .sidebar-title {
+    flex: 1;
+    font-size: 14px;
+    color: #374151;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .sidebar-arrow {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    transition: transform 0.2s ease;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.sidebar-icon {
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+  flex-shrink: 0;
+
+  &.active {
+    color: #1d4ed8;
+  }
+}
+
+.sidebar-expandable {
+  .sidebar-children {
+    background-color: transparent;
+
+    &.level-1 {
+      padding-left: 20px;
+
+      .sidebar-item {
+        margin: 0 8px 2px 0;
+
+        .sidebar-item-content {
+          padding: 8px 12px;
+
+          .sidebar-title {
+            font-size: 13px;
+          }
+        }
+
+        &.active {
+          border-radius: 0 8px 8px 0;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #1d4ed8;
+            border-radius: 0 2px 2px 0;
+          }
+        }
+      }
+    }
+
+    &.level-2 {
+      padding-left: 40px;
+
+      .sidebar-item {
+        margin: 0 8px 2px 0;
+
+        .sidebar-item-content {
+          padding: 6px 12px;
+
+          .sidebar-title {
+            font-size: 12px;
+            color: #6b7280;
+          }
+        }
+
+        &:hover {
+          background-color: #f9fafb;
+        }
+
+        &.active {
+          border-radius: 0 6px 6px 0;
+
+          .sidebar-title {
+            color: #1d4ed8;
+            font-weight: 500;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: -40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #1d4ed8;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar-child {
+  position: relative;
+}
+
+.sidebar-children {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
