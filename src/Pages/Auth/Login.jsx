@@ -8,7 +8,7 @@ import CustomCheckbox from "../../Components/Form/CustomCheckbox";
 import CustomeBtn from "../../Components/CustomeBtn";
 import { IconFacebook, IconGoogle } from "../../Assets/Icons/IconsSvg";
 import { schemaLogin } from "../../Utils/ValidationUtils";
-import Api from "../../Api/api";
+import axios from "axios";
 
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -28,21 +28,29 @@ export default function Login() {
     },
   });
 
-  const onSubmit = async (data) => {
-    setIsLoading(!isLoading);
 
+  const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("email", data.email);
     formData.append("password", data.password);
-    Api.post("auth/login/", formData);
-
-    const response = await Api.post("auth/login/", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+  
+    axios.post("https://54.235.109.101/auth/login/", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
+    })
+    .then((res) => {
+      console.log("✅ Login Success:", res.data);
+    })
+    .catch((err) => {
+      if (err.response) {
+        console.error("❌ Error response:", err.response.status, err.response.data);
+      } else {
+        console.error("❌ Error:", err.message);
+      }
     });
   };
+  
+  
 
   return (
     <div className="from_editor_Auth">

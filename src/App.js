@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import { useLanguage } from "./Hooks/useLanguage";
 import { useTheme } from "./Hooks/useTheme";
-import AuthRoutes from "./routes/AuthRoutes";
-import MainRoutes from "./routes/MainRoutes";
+import AuthRoutes from "./Routes/AuthRoutes";
+import MainRoutes from "./Routes/MainRoutes";
 import "./styles/css/main.css";
 function App() {
   useTheme();
