@@ -8,7 +8,7 @@ import CustomCheckbox from '../../Components/Form/CustomCheckbox';
 import CustomeBtn from '../../Components/CustomeBtn';
 import { IconFacebook, IconGoogle } from '../../Assets/Icons/IconsSvg';
 import { schemaLogin } from '../../Utils/ValidationUtils';
-
+import axios from 'axios';
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
   const {
@@ -28,24 +28,18 @@ export default function Login() {
   });
 
   const onSubmit = (data) => {
-    const formData = new FormData();
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-  
-    axios.post("https://54.235.109.101/auth/login/", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-      withCredentials: true,
-    })
-    .then((res) => {
-      console.log("✅ Login Success:", res.data);
-    })
-    .catch((err) => {
-      if (err.response) {
-        console.error("❌ Error response:", err.response.status, err.response.data);
-      } else {
-        console.error("❌ Error:", err.message);
-      }
-    });
+   const formdata = new FormData();
+formdata.append("email", data.email);
+formdata.append("password",  data.password);
+
+fetch("http://54.235.109.101/auth/login/", {
+  method: "POST",
+  body: formdata,
+})
+  .then((response) => response.json())
+  .then((result) => console.log("Login response:", result))
+  .catch((error) => console.error("Error:", error));
+
   };
 
   return (
