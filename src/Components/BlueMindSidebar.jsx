@@ -19,7 +19,7 @@ import {
   X,
 } from "lucide-react";
 import logo from "../Assets/Logo.svg";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [expandedItems, setExpandedItems] = useState({});
   const [activeItem, setActiveItem] = useState("media-monitoring");
@@ -46,7 +46,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
         {
           id: "media-monitoring",
           title: "Media Monitoring",
-          route: "mediaMonitoring",
+          route: "mediaMonitoring/Add",
         },
         {
           id: "text-sentiment",
@@ -59,16 +59,23 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "real-estate",
       title: "Real Estate",
-      icon: Building2,
-      type: "expandable",
-      children: [
-        {
-          id: "house-prediction",
-          title: "House Prediction",
-          route: "housePrediction",
-        },
-      ],
+      icon: UtensilsCrossed,
+      type: "single",
+      route: "/real-estate/Add",
     },
+    // {
+    //   id: "real-estate",
+    //   title: "Real Estate",
+    //   icon: Building2,
+    //   type: "expandable",
+    //   children: [
+    //     {
+    //       id: "house-prediction",
+    //       title: "House Prediction",
+    //       route: "housePrediction",
+    //     },
+    //   ],
+    // },
     {
       id: "restaurant",
       title: "Restaurant",
@@ -134,19 +141,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
         },
       ],
     },
-    {
-      id: "sales",
-      title: "Sales",
-      icon: TrendingUp,
-      type: "expandable",
-      children: [
-        {
-          id: "sales-analytics",
-          title: "Sales Analytics",
-          route: "/sales/analytics",
-        },
-      ],
-    },
+
     {
       id: "banking",
       title: "Banking",
@@ -192,7 +187,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const handleNavigation = (route, itemId) => {
     if (route) {
       setActiveItem(itemId);
-       navigate(`/${route}`);
+      navigate(`/${route}`);
     }
   };
 
@@ -271,18 +266,18 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
 
           if (item.type === "single") {
             return (
-              <div
+              <Link
                 key={item.id}
+                to={item.route}
                 className={`sidebar-item ${
                   activeItem === item.id ? "active" : ""
                 }`}
-                onClick={() => handleNavigation(item.route, item.id)}
               >
                 <div className="sidebar-item-content">
                   {renderIcon(item.icon, activeItem === item.id)}
                   <span className="sidebar-title">{item.title}</span>
                 </div>
-              </div>
+              </Link>
             );
           }
 
