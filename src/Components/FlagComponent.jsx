@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FlagComponent({ data }) {
+  const [copied, setCopied] = useState(false);
+
   const handleCopy = () => {
     if (data) {
       navigator.clipboard.writeText(JSON.stringify(data, null, 2));
-      alert("Data copied to clipboard!");
+      setCopied(true);
+
+      // نخلي الرسالة تختفي بعد 2 ثانية
+      setTimeout(() => setCopied(false), 2000);
     }
   };
 
@@ -17,7 +22,7 @@ function FlagComponent({ data }) {
         <div className="border rounded-md bg-white h-48 flex items-center justify-center overflow-auto p-2">
           {data ? (
             <pre className="text-xs text-gray-700 whitespace-pre-wrap">
-              {JSON.stringify(data, null, 2)}{" "}
+              {JSON.stringify(data, null, 2)}
             </pre>
           ) : (
             <span className="text-gray-400 text-3xl">{`{...}`}</span>
@@ -27,9 +32,9 @@ function FlagComponent({ data }) {
           type="button"
           onClick={handleCopy}
           disabled={!data}
-          className="w-full mt-3 py-2 rounded-md bg-gray-50 text-gray-800 font-medium hover:bg-gray-100 disabled:opacity-50"
+          className="w-full mt-3 py-2 rounded-md bg-gray-50 text-gray-800 font-medium hover:bg-gray-100 disabled:opacity-50 relative"
         >
-          Flag
+          {copied ? "Copied!" : "Flag"}
         </button>
       </div>
     </div>

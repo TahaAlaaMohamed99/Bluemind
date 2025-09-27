@@ -45,6 +45,7 @@ export default function Login() {
       console.error("Login error:", error);
     } finally {
       setIsLoading(false);
+      window.location.href = "/"; 
     }
   };
 

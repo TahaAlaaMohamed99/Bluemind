@@ -4,8 +4,8 @@ import DropdownActions from "./DropdownActions";
 
 export const UserMenu = () => {
   const handleLogout = () => {
-    console.log("Logging out...");
-  };
+    localStorage.removeItem("accessToken");
+    window.location.href = "/";  };
 
   const handleProfile = () => {
     console.log("Opening profile...");

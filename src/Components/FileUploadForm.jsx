@@ -44,27 +44,26 @@ const FileUploadForm = ({
   return (
     <div className="main-section">
       <div className="mb-6 flex items-center space-x-4">
-        <button
+        {/* <button
           onClick={onBack}
           className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
         >
           <ArrowLeft className="w-5 h-5 text-gray-600" />
-        </button>
+        </button> */}
         <div>
           <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
           <p className="text-gray-600 text-sm mt-1">
-            Know what your audience talking about using our Media Monitoring...
+            Know what your audience talking about using our ...
           </p>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className="lg:col-span-2">
           <div
-            className={`border-2 border-dashed rounded-xl p-12 text-center transition-colors ${
-              dragActive
+            className={`border-2 border-dashed rounded-xl p-12 text-center transition-colors ${dragActive
                 ? "border-blue-400 bg-blue-50"
                 : "border-gray-300 hover:border-gray-400"
-            }`}
+              }`}
             onDragEnter={handleDrag}
             onDragLeave={handleDrag}
             onDragOver={handleDrag}
@@ -110,7 +109,7 @@ const FileUploadForm = ({
               disabled={loading}
               className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium disabled:opacity-50"
             >
-              {loading ? "Uploading..." : id == "Add" ? "Submit" : "Edit"}
+              {loading ? "Uploading..." : "Submit"}
             </button>
           </div>
         </div>

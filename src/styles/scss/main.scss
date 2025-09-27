@@ -4,7 +4,7 @@
 @use "./layout/header";
 @use "./layout/sidebar";
 @use "./layout/auth-layout";
-
+ 
 /* components */
 @use "./components/auth-header";
 @use "./components/buttons";
@@ -19,3 +19,4 @@
     margin-top: 160px;
   }
 }
+

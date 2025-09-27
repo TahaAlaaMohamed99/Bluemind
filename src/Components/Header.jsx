@@ -41,7 +41,7 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
         )}
 
         {!breadcrumb && (
-          <div className="welcome-msg">👋 Good morning , Islam Mohamed</div>
+          <div className="welcome-msg">👋 Good morning</div>
         )}
       </div>
       <div className="actions">
