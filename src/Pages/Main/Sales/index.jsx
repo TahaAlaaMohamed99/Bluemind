@@ -7,7 +7,7 @@ import {
 import { useDispatch } from "react-redux";
 import FileUploadForm from "../../../Components/FileUploadForm";
 
-const MediaAddEdit = () => {
+const SalesAddEdit = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const MediaAddEdit = () => {
   };
 
   useEffect(() => {
-    dispatch(setBreadcrumb(["Media", "Media Monitoring", id]));
+    dispatch(setBreadcrumb(["Sales", "Add Sales"]));
     return () => {
       dispatch(resetBreadcrumb());
     };
@@ -26,25 +26,26 @@ const MediaAddEdit = () => {
 
   return (
     <>
-      {id === "Add" && (
+      {id == "Add" && (
         <FileUploadForm
           onBack={handleBack}
-          title="Add New Media Monitoring"
+          title="Add New Sales"
           accessToken={accessToken}
-          endPoint="media/predict"
+          endPoint="sales/sales_prediction"
+          id={id}
         />
       )}
       {id !== "Add" && (
         <FileUploadForm
           onBack={handleBack}
-          title={id}
-          showClassOccurrences={true}
+          title="Edit Sales"
           accessToken={accessToken}
-          endPoint="media/predict"
+          endPoint="sales/sales_prediction"
+          id={id}
         />
       )}
     </>
   );
 };
 
-export default MediaAddEdit;
+export default SalesAddEdit;
