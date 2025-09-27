@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   resetBreadcrumb,
   setBreadcrumb,
@@ -11,9 +11,12 @@ const MediaAddEdit = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const accessToken = localStorage.getItem("accessToken");
+
   const FileUploadForm = ({ onBack, title, showClassOccurrences = false }) => {
     const [dragActive, setDragActive] = useState(false);
     const [file, setFile] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleDrag = (e) => {
       e.preventDefault();
@@ -41,6 +44,41 @@ const MediaAddEdit = () => {
       }
     };
 
+    // ====== رفع الملف ======
+    const handleSubmit = async () => {
+      if (!file) {
+        alert("Please select a file first!");
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const formData = new FormData();
+        formData.append("csv_file", file);
+        const response = await fetch("http://54.235.109.101/media/predict/", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,  
+            Cookie:
+              "csrftoken=M30Y6s2zXMnH4OW7OOjv3xBs9gOZM1Kg; sessionid=8tt0uig05fyvoj66xo9qbjfwutuohbk5",
+          },
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log("Success:", data);
+        alert("File uploaded successfully!");
+      } catch (error) {
+        console.error("Upload failed:", error);
+        alert("Upload failed, please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
     return (
       <div className="main-section">
         <div className="mb-6 flex items-center space-x-4">
@@ -53,8 +91,7 @@ const MediaAddEdit = () => {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
             <p className="text-gray-600 text-sm mt-1">
-              Know what your audience talking about using our Media
-              Monitoring...
+              Know what your audience talking about using our Media Monitoring...
             </p>
           </div>
         </div>
@@ -107,8 +144,16 @@ const MediaAddEdit = () => {
               >
                 Clear
               </button>
-              <button className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium">
-                {title === "Add New Media Monitoring" ? "Submit" : "Edit"}
+              <button
+                onClick={handleSubmit}
+                disabled={loading}
+                className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium disabled:opacity-50"
+              >
+                {loading
+                  ? "Uploading..."
+                  : title === "Add New Media Monitoring"
+                  ? "Submit"
+                  : "Edit"}
               </button>
             </div>
           </div>
@@ -137,15 +182,18 @@ const MediaAddEdit = () => {
       </div>
     );
   };
+
   const handleBack = () => {
     navigate(-1);
   };
+
   useEffect(() => {
     dispatch(setBreadcrumb(["Media", "Media Monitoring", id]));
     return () => {
       dispatch(resetBreadcrumb());
     };
-  }, [dispatch]);
+  }, [dispatch, id]);
+
   return (
     <>
       {id === "Add" && (
@@ -162,4 +210,5 @@ const MediaAddEdit = () => {
     </>
   );
 };
+
 export default MediaAddEdit;

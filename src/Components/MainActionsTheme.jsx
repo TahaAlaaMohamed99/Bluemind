@@ -112,7 +112,7 @@ export default function MainActionsTheme() {
 
   const getAddRoute = () => {
     if (!currentComponent) return null;
-    return `/app/${currentComponent}/add`;
+    return `/${currentComponent}/add`;
   };
 
   const handleThemeToggle = () => {

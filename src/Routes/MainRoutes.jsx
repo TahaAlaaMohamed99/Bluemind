@@ -14,7 +14,7 @@ export default function MainRoutes() {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="*" element={<Dashboard />} />
           <Route path="mediaMonitoring" element={<MediaMonitoring />} />
           <Route path="mediaMonitoring/:id" element={<MediaAddEdit />} />
           <Route path="housePrediction" element={<HousePrediction />} />

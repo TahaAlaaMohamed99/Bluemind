@@ -124,11 +124,11 @@ const MediaMonitoring = () => {
   };
   const handleCardClick = (cardId) => {
     if (cardId === "add") {
-      navigate(`/app/mediaMonitoring/Add`);
+      navigate(`/mediaMonitoring/Add`);
     } else if (cardId === "plans") {
-      navigate(`/app/mediaMonitoring/${cardId}`);
+      navigate(`/mediaMonitoring/${cardId}`);
     } else if (cardId === "roster") {
-      navigate(`/app/mediaMonitoring/${cardId}`);
+      navigate(`/mediaMonitoring/${cardId}`);
     }
   };
 

@@ -124,11 +124,11 @@ const HousePrediction = () => {
   };
   const handleCardClick = (cardId) => {
     if (cardId === "add") {
-      navigate(`/app/housePrediction/Add`);
+      navigate(`/housePrediction/Add`);
     } else if (cardId === "plans") {
-      navigate(`/app/housePrediction/${cardId}`);
+      navigate(`/housePrediction/${cardId}`);
     } else if (cardId === "roster") {
-      navigate(`/app/housePrediction/${cardId}`);
+      navigate(`/housePrediction/${cardId}`);
     }
   };
 

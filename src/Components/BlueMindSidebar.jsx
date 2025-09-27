@@ -29,7 +29,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       id: "dashboard",
       title: "Dashboard",
       icon: LayoutDashboard,
-      route: "/dashboard",
+      route: "/",
       type: "single",
     },
     {
@@ -186,8 +186,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const handleNavigation = (route, itemId) => {
     if (route) {
       setActiveItem(itemId);
-      console.log(route, "route");
-      navigate(`/app/${route}`);
+       navigate(`/${route}`);
     }
   };
 

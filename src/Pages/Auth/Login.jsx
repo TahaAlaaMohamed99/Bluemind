@@ -9,6 +9,8 @@ import CustomeBtn from '../../Components/CustomeBtn';
 import { IconFacebook, IconGoogle } from '../../Assets/Icons/IconsSvg';
 import { schemaLogin } from '../../Utils/ValidationUtils';
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
+
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
   const {
@@ -27,20 +29,25 @@ export default function Login() {
     },
   });
 
-  const onSubmit = (data) => {
-   const formdata = new FormData();
-formdata.append("email", data.email);
-formdata.append("password",  data.password);
+  const onSubmit = async (data) => {
+    setIsLoading(true)
+    try {
+      const formdata = new FormData();
+      formdata.append("email", data.email);
+      formdata.append("password", data.password);
+      const response = await axios.post("http://54.235.109.101/auth/login/", formdata);
+      const { access, refresh, user } = response.data;
+      localStorage.setItem("accessToken", access);
+      localStorage.setItem("refreshToken", refresh);
+      localStorage.setItem("user", JSON.stringify(user));
 
-fetch("http://54.235.109.101/auth/login/", {
-  method: "POST",
-  body: formdata,
-})
-  .then((response) => response.json())
-  .then((result) => console.log("Login response:", result))
-  .catch((error) => console.error("Error:", error));
-
+    } catch (error) {
+      console.error("Login error:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
+
 
   return (
     <div className="from_editor_Auth">

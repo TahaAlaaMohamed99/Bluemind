@@ -1,9 +1,4 @@
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
 import { useLanguage } from "./Hooks/useLanguage";
 import { useTheme } from "./Hooks/useTheme";
 import AuthRoutes from "./Routes/AuthRoutes";
@@ -12,18 +7,8 @@ import "./styles/css/main.css";
 function App() {
   useTheme();
   useLanguage();
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/auth/*" element={<AuthRoutes />} />
-
-        <Route path="/app/*" element={<MainRoutes />} />
-
-        <Route path="*" element={<Navigate to="/auth/login" replace />} />
-      </Routes>
-    </Router>
-  );
+  const userToken = localStorage.getItem("accessToken") || null;
+  return <Router>{userToken !== null ? <MainRoutes /> : <AuthRoutes />}</Router>;
 }
 
 export default App;
