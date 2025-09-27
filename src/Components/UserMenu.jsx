@@ -1,10 +1,15 @@
 import React from "react";
 import { Menu, X, User, Settings, LogOut } from "lucide-react";
 import DropdownActions from "./DropdownActions";
+import { useSelector } from "react-redux";
 
 export const UserMenu = () => {
   const handleLogout = () => {
     console.log("Logging out...");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("token");
+    window.location.reload()
   };
 
   const handleProfile = () => {
@@ -14,14 +19,9 @@ export const UserMenu = () => {
   const handleSettings = () => {
     console.log("Opening settings...");
   };
+  const { currentUser, loading } = useSelector((state) => state.user);
+
   const userMenuItems = [
-    {
-      label: "Islam Mohamed",
-      icon: <User size={16} />,
-      onClick: handleProfile,
-      isActive: false,
-      className: "user-name",
-    },
     {
       label: "profile",
       icon: <User size={16} />,
@@ -49,7 +49,16 @@ export const UserMenu = () => {
       icon={
         <img src="https://avatar.iran.liara.run/public/7" alt="User Avatar" />
       }
-      menuItems={userMenuItems}
+      menuItems={[
+        {
+          label: currentUser?.email,
+          icon: <User size={16} />,
+          onClick: handleProfile,
+          isActive: false,
+          className: "user-name",
+        },
+        ...userMenuItems,
+      ]}
       ResourcePage="header"
       isDropdownIcon={false}
       isUserMenu={true}

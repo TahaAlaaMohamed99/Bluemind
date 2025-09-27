@@ -73,8 +73,14 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       id: "restaurant",
       title: "Restaurant",
       icon: UtensilsCrossed,
-      type: "single",
-      route: "/media/house-prediction",
+      type: "expandable",
+       children: [
+        {
+          id: "resturant-rating-prediction",
+          title: "Resturant Rating Prediction",
+          route: "resturantRatingPrediction",
+        },
+      ],
     },
     {
       id: "education",
@@ -83,9 +89,9 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       type: "expandable",
       children: [
         {
-          id: "course-monitoring",
-          title: "Course Monitoring",
-          route: "/education/courses",
+          id: "student-performance",
+          title: "Student Performance Prediction",
+          route: "studentPerformancePrediction",
         },
       ],
     },

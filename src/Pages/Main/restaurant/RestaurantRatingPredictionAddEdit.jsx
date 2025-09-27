@@ -9,9 +9,9 @@ import {
 } from "../../../Store/slices/layout-slice";
 import { useDispatch } from "react-redux";
 import { ArrowLeft, Upload } from "lucide-react";
-import CustomInput from "../../../Components/Form/CustomInput";
+ 
 
-const HousePredictionAddEdit = () => {
+const RestaurantRatingPredictionAddEdit = () => {
   const validationSchema = Yup.object().shape({
     bedrooms: Yup.number()
       .typeError("Must be a number")
@@ -280,7 +280,7 @@ const HousePredictionAddEdit = () => {
     navigate(-1);
   };
   useEffect(() => {
-    dispatch(setBreadcrumb(["Restaurant", "Restaurant Rating Prediction", id]));
+    dispatch(setBreadcrumb(["Media", "Restaurant Rating Prediction", id]));
     return () => {
       dispatch(resetBreadcrumb());
     };
@@ -397,16 +397,16 @@ const HousePredictionAddEdit = () => {
                 {/* Bedrooms */}
                 <div className="flex flex-col">
                   <label className="mb-1 font-medium">
-                    Bedrooms<span className="text-red-500">*</span>
+                    Location<span className="text-red-500">*</span>
                   </label>
                   <Field
                     type="number"
-                    name="bedrooms"
-                    placeholder="Enter Number of Bedrooms"
+                    name="location"
+                    placeholder="Enter Location"
                     className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <ErrorMessage
-                    name="bedrooms"
+                    name="location"
                     component="div"
                     className="text-red-500 text-sm mt-1"
                   />
@@ -415,16 +415,16 @@ const HousePredictionAddEdit = () => {
                 {/* Bathrooms */}
                 <div className="flex flex-col">
                   <label className="mb-1 font-medium">
-                    Bathrooms<span className="text-red-500">*</span>
+                    Cuisine <span className="text-red-500">*</span>
                   </label>
                   <Field
                     type="number"
-                    name="bathrooms"
-                    placeholder="Enter Number of Bathrooms"
+                    name="cuisine"
+                    placeholder="Enter Cuisine"
                     className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <ErrorMessage
-                    name="bathrooms"
+                    name="cuisine"
                     component="div"
                     className="text-red-500 text-sm mt-1"
                   />
@@ -432,15 +432,15 @@ const HousePredictionAddEdit = () => {
 
                 {/* Living Area */}
                 <div className="flex flex-col">
-                  <label className="mb-1 font-medium">Living Area</label>
+                  <label className="mb-1 font-medium">Seating Capacity</label>
                   <Field
                     type="text"
-                    name="livingArea"
-                    placeholder="Enter Living Area"
+                    name="seating capacity"
+                    placeholder="Enter Seating Capacity"
                     className="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <ErrorMessage
-                    name="livingArea"
+                    name="seating capacity"
                     component="div"
                     className="text-red-500 text-sm mt-1"
                   />
@@ -549,4 +549,4 @@ const HousePredictionAddEdit = () => {
     </>
   );
 };
-export default HousePredictionAddEdit;
+export default RestaurantRatingPredictionAddEdit;

@@ -4,6 +4,7 @@ import AuthHeader from "../Components/AuthHeader";
 
 import TranslationText from "../Components/TranslationText";
 import { IconArrowRight } from "../Assets/Icons/IconsSvg";
+import { ToastContainer } from "react-toastify";
 export default function AuthLayout() {
   return (
     <div className="Auth_Layout">
@@ -31,6 +32,8 @@ export default function AuthLayout() {
           <Outlet />
         </div>
       </div>
+      <ToastContainer />
     </div>
+
   );
 }
