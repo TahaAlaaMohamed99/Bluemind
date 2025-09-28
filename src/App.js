@@ -26,7 +26,7 @@ import { useTheme } from "./Hooks/useTheme";
 import AuthRoutes from "./Routes/AuthRoutes";
 import MainRoutes from "./Routes/MainRoutes";
  
-import "./styles/css/main.css";
+import "./Styles/css/main.css";
 import { initializeFromStorage } from "./Store/slices/user-slice";
 
 function App() {

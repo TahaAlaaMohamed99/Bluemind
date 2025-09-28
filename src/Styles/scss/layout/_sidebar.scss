@@ -91,9 +91,7 @@
   transition: all 0.2s ease;
   position: relative;
 
-  &:hover {
-    background-color: #f3f4f6;
-  }
+ 
 
   &.active {
     .sidebar-title {
@@ -161,7 +159,7 @@
   flex-shrink: 0;
 
   &.active {
-    color: #1d4ed8;
+    color: #fff;
   }
 }
 

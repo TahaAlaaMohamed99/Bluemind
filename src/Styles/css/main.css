@@ -275,9 +275,6 @@
   transition: all 0.2s ease;
   position: relative;
 }
-.sidebar-item:hover {
-  background-color: #f3f4f6;
-}
 .sidebar-item.active .sidebar-title {
   color: #1d4ed8;
   font-weight: 500;
@@ -331,7 +328,7 @@
   flex-shrink: 0;
 }
 .sidebar-icon.active {
-  color: #1d4ed8;
+  color: #fff;
 }
 
 .sidebar-expandable .sidebar-children {

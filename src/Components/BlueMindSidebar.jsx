@@ -15,15 +15,15 @@ import {
   HelpCircle,
   ChevronRight,
   ChevronDown,
-  Menu,
   X,
 } from "lucide-react";
 import logo from "../Assets/Logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";  
+
 const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [expandedItems, setExpandedItems] = useState({});
-  const [activeItem, setActiveItem] = useState("media-monitoring");
-  const navigate = useNavigate();
+  const location = useLocation();  
+
   const sidebarData = [
     {
       id: "dashboard",
@@ -32,31 +32,13 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       route: "/",
       type: "single",
     },
-    {
-      id: "subscription",
-      title: "SUBSCRIPTION",
-      type: "header",
-    },
+    { id: "subscription", title: "SUBSCRIPTION", type: "header" },
     {
       id: "media",
       title: "Media",
       icon: Play,
       type: "single",
       route: "/mediaMonitoring/Add",
-
-      // children: [
-      //   {
-      //     id: "media-monitoring",
-      //     title: "Media Monitoring",
-      //     route: "mediaMonitoring/Add",
-      //   },
-      //   {
-      //     id: "text-sentiment",
-      //     title: "Text Sentiment Analysis",
-      //     route: "/media/sentiment",
-      //     disabled: true,
-      //   },
-      // ],
     },
     {
       id: "real-estate",
@@ -65,19 +47,6 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       type: "single",
       route: "/real-estate/Add",
     },
-    // {
-    //   id: "real-estate",
-    //   title: "Real Estate",
-    //   icon: Building2,
-    //   type: "expandable",
-    //   children: [
-    //     {
-    //       id: "house-prediction",
-    //       title: "House Prediction",
-    //       route: "housePrediction",
-    //     },
-    //   ],
-    // },
     {
       id: "restaurant",
       title: "Restaurant",
@@ -91,13 +60,6 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       icon: GraduationCap,
       type: "single",
       route: "/education/Add",
-      // children: [
-      //   {
-      //     id: "course-monitoring",
-      //     title: "Course Monitoring",
-      //     route: "/education/courses",
-      //   },
-      // ],
     },
     {
       id: "sales",
@@ -105,13 +67,6 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       icon: TrendingUp,
       type: "single",
       route: "/sales/Add",
-      // children: [
-      //   {
-      //     id: "sales-analytics",
-      //     title: "Sales Analytics",
-      //     route: "/sales/analytics",
-      //   },
-      // ],
     },
     {
       id: "concrete",
@@ -166,7 +121,6 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
         },
       ],
     },
-
     {
       id: "banking",
       title: "Banking",
@@ -174,11 +128,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       type: "single",
       route: "/banking",
     },
-    {
-      id: "support",
-      title: "SUPPORT",
-      type: "header",
-    },
+    { id: "support", title: "SUPPORT", type: "header" },
     {
       id: "documentation",
       title: "Documentation",
@@ -202,67 +152,74 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     },
   ];
 
-  const toggleExpanded = (itemId) => {
-    setExpandedItems((prev) => ({
-      ...prev,
-      [itemId]: !prev[itemId],
-    }));
-  };
+  const toggleExpanded = (itemId) =>
+    setExpandedItems((prev) => ({ ...prev, [itemId]: !prev[itemId] }));
 
-  const handleNavigation = (route, itemId) => {
-    if (route) {
-      setActiveItem(itemId);
-      navigate(`/${route}`);
-    }
-  };
+  const isRouteActive = (route) =>
+    location.pathname === route || location.pathname.startsWith(route + "/");
 
-  const renderIcon = (IconComponent, isActive = false) => {
-    if (!IconComponent) return null;
-    return (
+  const renderIcon = (IconComponent, isActive = false) =>
+    IconComponent ? (
       <IconComponent className={`sidebar-icon ${isActive ? "active" : ""}`} />
-    );
-  };
+    ) : null;
 
-  const renderChildren = (children, parentId, level = 1) => {
-    return (
-      <div className={`sidebar-children level-${level}`}>
-        {children.map((child) => (
-          <div key={child.id} className="sidebar-child">
-            <div
-              className={`sidebar-item ${
-                activeItem === child.id ? "active" : ""
-              } ${child.disabled ? "disabled" : ""}`}
-              onClick={() => {
-                if (!child.disabled) {
-                  if (child.children) {
-                    toggleExpanded(child.id);
-                  } else {
-                    handleNavigation(child.route, child.id);
-                  }
-                }
-              }}
-            >
+  const renderChildren = (children, parentId, level = 1) => (
+    <div className={`sidebar-children level-${level}`}>
+      {children.map((child) => {
+        const hasGrandChildren =
+          Array.isArray(child.children) && child.children.length > 0;
+
+        if (hasGrandChildren) {
+          const isExpanded = expandedItems[child.id];
+          const hasActiveDescendant =
+            child.children?.some((c) => isRouteActive(c.route)) ||
+            isRouteActive(child.route || "");
+
+          return (
+            <div key={child.id} className="sidebar-child">
+              <div
+                className={`sidebar-item ${
+                  hasActiveDescendant
+                    ? "bg-primary text-white dark:bg-primary dark:text-white"
+                    : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+                }`}
+                onClick={() => toggleExpanded(child.id)}
+              >
+                <div className="sidebar-item-content">
+                  <span className="sidebar-title">{child.title}</span>
+                  <span className="sidebar-arrow">
+                    {isExpanded ? <ChevronDown /> : <ChevronRight />}
+                  </span>
+                </div>
+              </div>
+              {isExpanded &&
+                renderChildren(child.children, child.id, level + 1)}
+            </div>
+          );
+        }
+
+         return (
+          <NavLink
+            key={child.id}
+            to={child.route}
+            className={({ isActive }) =>
+              `sidebar-item ${
+                isActive
+                  ? "bg-primary text-white dark:bg-primary dark:text-white"
+                  : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+              }`
+            }
+          >
+            {({ isActive }) => (
               <div className="sidebar-item-content">
                 <span className="sidebar-title">{child.title}</span>
-                {child.children && (
-                  <span className="sidebar-arrow">
-                    {expandedItems[child.id] ? (
-                      <ChevronDown />
-                    ) : (
-                      <ChevronRight />
-                    )}
-                  </span>
-                )}
               </div>
-            </div>
-            {child.children &&
-              expandedItems[child.id] &&
-              renderChildren(child.children, child.id, level + 1)}
-          </div>
-        ))}
-      </div>
-    );
-  };
+            )}
+          </NavLink>
+        );
+      })}
+    </div>
+  );
 
   return (
     <div
@@ -298,44 +255,48 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
 
           if (item.type === "single") {
             return (
-              <Link
+              <NavLink
                 key={item.id}
                 to={item.route}
-                className={`sidebar-item flex items-center px-3 py-2 rounded-md transition-colors 
-              ${
-                activeItem === item.id
-                  ? "bg-primary text-white dark:bg-primary dark:text-white"
-                  : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
-              } 
-              text-textColor-light dark:text-titleColor-dark`}
+                className={({ isActive }) =>
+                  `sidebar-item flex items-center px-3 py-2 rounded-md transition-colors 
+                   ${
+                     isActive
+                       ? "bg-primary text-white dark:bg-primary dark:text-white"
+                       : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+                   } 
+                   text-textColor-light dark:text-titleColor-dark`
+                }
               >
-                {renderIcon(item.icon, activeItem === item.id)}
-                <span className="ml-2">{item.title}</span>
-              </Link>
+                {({ isActive }) => (
+                  <>
+                    {renderIcon(item.icon, isActive)}
+                    <span className="ml-2">{item.title}</span>
+                  </>
+                )}
+              </NavLink>
             );
           }
 
           if (item.type === "expandable") {
             const isExpanded = expandedItems[item.id];
-            const hasActiveChild = item.children?.some(
-              (child) =>
-                activeItem === child.id ||
-                child.children?.some((subChild) => activeItem === subChild.id)
-            );
+            const hasActiveChild =
+              item.children?.some((child) => isRouteActive(child.route)) ||
+              false;
 
             return (
               <div key={item.id} className="sidebar-expandable">
                 <div
                   className={`sidebar-item flex items-center px-3 py-2 rounded-md transition-colors cursor-pointer
-                ${
-                  hasActiveChild
-                    ? "bg-primary text-white dark:bg-primary dark:text-white"
-                    : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
-                } 
-                text-textColor-light dark:text-titleColor-dark`}
+                  ${
+                    hasActiveChild
+                      ? "bg-primary text-white dark:bg-primary dark:text-white"
+                      : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+                  } 
+                  text-textColor-light dark:text-titleColor-dark`}
                   onClick={() => toggleExpanded(item.id)}
                 >
-                  {renderIcon(item.icon)}
+                  {renderIcon(item.icon, hasActiveChild)}
                   <span className="ml-2 flex-1">{item.title}</span>
                   <span className="sidebar-arrow">
                     {isExpanded ? <ChevronDown /> : <ChevronRight />}
