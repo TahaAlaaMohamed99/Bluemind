@@ -22,7 +22,7 @@ export default function MainRoutes() {
         <Route element={<MainLayout />}>
           <Route path="*" element={<Dashboard />} />
           <Route path="mediaMonitoring" element={<MediaMonitoring />} />
-          <Route path="mediaMonitoring/:id" element={<MediaAddEdit />} />
+          <Route path="/mediaMonitoring/:id" element={<MediaAddEdit />} />
           <Route path="/restaurant/:id" element={<RestaurantAddEdit />} />
           <Route path="/education/:id" element={<EducationAddEdit />} />
           <Route path="/education/:id" element={<EducationAddEdit />} />

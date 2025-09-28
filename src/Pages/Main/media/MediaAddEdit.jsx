@@ -18,20 +18,21 @@ const MediaAddEdit = () => {
   };
 
   useEffect(() => {
-    dispatch(setBreadcrumb(["Media", "Media Monitoring", id]));
+    dispatch(setBreadcrumb(["Media", "Media Monitoring"]));
     return () => {
       dispatch(resetBreadcrumb());
     };
   }, [dispatch, id]);
 
   return (
-    <>
-      {id === "Add" && (
+    <div className="dark:bg-background-dark">
+      {id == "Add" && (
         <FileUploadForm
           onBack={handleBack}
           title="Add New Media Monitoring"
           accessToken={accessToken}
           endPoint="media/predict"
+          id={id}
         />
       )}
       {id !== "Add" && (
@@ -41,9 +42,10 @@ const MediaAddEdit = () => {
           showClassOccurrences={true}
           accessToken={accessToken}
           endPoint="media/predict"
+          id={id}
         />
       )}
-    </>
+    </div>
   );
 };
 

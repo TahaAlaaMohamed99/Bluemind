@@ -7,15 +7,15 @@ import BlueMindSidebar from "../Components/BlueMindSidebar";
 export default function MainLayout() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
-    <>
+    <div className="bg-background-light dark:bg-background-dark ">
       <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       <BlueMindSidebar
         isCollapsed={isCollapsed}
         setIsCollapsed={setIsCollapsed}
       />
-      <main>
+      <main className="pt-[1px]">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 }

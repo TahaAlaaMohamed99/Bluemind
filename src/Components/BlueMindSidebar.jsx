@@ -41,25 +41,27 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       id: "media",
       title: "Media",
       icon: Play,
-      type: "expandable",
-      children: [
-        {
-          id: "media-monitoring",
-          title: "Media Monitoring",
-          route: "mediaMonitoring/Add",
-        },
-        {
-          id: "text-sentiment",
-          title: "Text Sentiment Analysis",
-          route: "/media/sentiment",
-          disabled: true,
-        },
-      ],
+      type: "single",
+      route: "/mediaMonitoring/Add",
+
+      // children: [
+      //   {
+      //     id: "media-monitoring",
+      //     title: "Media Monitoring",
+      //     route: "mediaMonitoring/Add",
+      //   },
+      //   {
+      //     id: "text-sentiment",
+      //     title: "Text Sentiment Analysis",
+      //     route: "/media/sentiment",
+      //     disabled: true,
+      //   },
+      // ],
     },
     {
       id: "real-estate",
       title: "Real Estate",
-      icon: UtensilsCrossed,
+      icon: Building2,
       type: "single",
       route: "/real-estate/Add",
     },
@@ -263,13 +265,17 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   };
 
   return (
-    <div className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
-      <div className="sidebar-header">
+    <div
+      className={`sidebar ${
+        isCollapsed ? "collapsed" : ""
+      } bg-background-light dark:bg-background-dark`}
+    >
+      <div className="sidebar-header border-b border-border-light dark:border-border-dark">
         <div className="sidebar-logo">
           <img src={logo} alt="sidebar-logo" />
         </div>
         <button
-          className="sidebar-toggle"
+          className="sidebar-toggle text-textColor-light dark:text-titleColor-dark hover:bg-gray-100 dark:hover:bg-background-cardDark rounded-lg"
           onClick={() => setIsCollapsed(!isCollapsed)}
           aria-label="Toggle Sidebar"
         >
@@ -277,11 +283,14 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
         </button>
       </div>
 
-      <div className="sidebar-content">
+      <div className="sidebar-content text-textColor-light dark:text-titleColor-dark">
         {sidebarData.map((item) => {
           if (item.type === "header") {
             return (
-              <div key={item.id} className="sidebar-header-text">
+              <div
+                key={item.id}
+                className="sidebar-header-text text-xs font-semibold text-gray-500 dark:text-textColor-dark mt-4 mb-2"
+              >
                 {item.title}
               </div>
             );
@@ -292,14 +301,16 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
               <Link
                 key={item.id}
                 to={item.route}
-                className={`sidebar-item ${
-                  activeItem === item.id ? "active" : ""
-                }`}
+                className={`sidebar-item flex items-center px-3 py-2 rounded-md transition-colors 
+              ${
+                activeItem === item.id
+                  ? "bg-primary text-white dark:bg-primary dark:text-white"
+                  : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+              } 
+              text-textColor-light dark:text-titleColor-dark`}
               >
-                <div className="sidebar-item-content">
-                  {renderIcon(item.icon, activeItem === item.id)}
-                  <span className="sidebar-title">{item.title}</span>
-                </div>
+                {renderIcon(item.icon, activeItem === item.id)}
+                <span className="ml-2">{item.title}</span>
               </Link>
             );
           }
@@ -315,18 +326,20 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
             return (
               <div key={item.id} className="sidebar-expandable">
                 <div
-                  className={`sidebar-item ${
-                    hasActiveChild ? "has-active-child" : ""
-                  }`}
+                  className={`sidebar-item flex items-center px-3 py-2 rounded-md transition-colors cursor-pointer
+                ${
+                  hasActiveChild
+                    ? "bg-primary text-white dark:bg-primary dark:text-white"
+                    : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
+                } 
+                text-textColor-light dark:text-titleColor-dark`}
                   onClick={() => toggleExpanded(item.id)}
                 >
-                  <div className="sidebar-item-content">
-                    {renderIcon(item.icon)}
-                    <span className="sidebar-title">{item.title}</span>
-                    <span className="sidebar-arrow">
-                      {isExpanded ? <ChevronDown /> : <ChevronRight />}
-                    </span>
-                  </div>
+                  {renderIcon(item.icon)}
+                  <span className="ml-2 flex-1">{item.title}</span>
+                  <span className="sidebar-arrow">
+                    {isExpanded ? <ChevronDown /> : <ChevronRight />}
+                  </span>
                 </div>
                 {isExpanded && renderChildren(item.children, item.id)}
               </div>
