@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useFileUpload = (accessToken, endPoint) => {
+const useFileUpload = (accessToken, endPoint, onLogout) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -22,11 +22,22 @@ const useFileUpload = (accessToken, endPoint) => {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,
-          Cookie:
-            "csrftoken=M30Y6s2zXMnH4OW7OOjv3xBs9gOZM1Kg; sessionid=8tt0uig05fyvoj66xo9qbjfwutuohbk5",
+          // الأفضل تشيل الـ Cookie لو مش محتاجها
         },
         body: formData,
       });
+
+      if (response.status === 401) {
+        // لو فيه دالة logout جايه من برا نستخدمها
+        if (onLogout) {
+          onLogout();
+        } else {
+          // fallback: امسح البيانات وروّح login
+          localStorage.removeItem("accessToken");
+          window.location.href = "/";
+        }
+        return;
+      }
 
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
@@ -35,11 +46,9 @@ const useFileUpload = (accessToken, endPoint) => {
       const result = await response.json();
       setData(result);
       console.log("Success:", result);
-      alert("File uploaded successfully!");
     } catch (err) {
-      console.error("Upload failed:", err);
+      console.log("Upload failed:", err);
       setError(err.message);
-      alert("Upload failed, please try again.");
     } finally {
       setLoading(false);
     }

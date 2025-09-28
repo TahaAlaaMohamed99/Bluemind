@@ -2,10 +2,20 @@ import MainActionsTheme from "./MainActionsTheme";
 import { Menu, X } from "lucide-react";
 import { UserMenu } from "./UserMenu";
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Store/slices/user-slice";
 export default function Header({ isCollapsed, setIsCollapsed }) {
   const breadcrumb = useSelector((state) => state.layout.breadcrumb);
+  const { currentUser, loading } = useSelector((state) => state.user);
 
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+   if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <header
       className={`main-header bg-background-light  dark:bg-background-dark  ${
@@ -43,7 +53,7 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
         )}
 
         {!breadcrumb && (
-          <div className="welcome-msg">👋 Good morning , Islam Mohamed</div>
+          <div className="welcome-msg">👋 Good morning , {currentUser?.email}</div>
         )}
       </div>
       <div className="actions">

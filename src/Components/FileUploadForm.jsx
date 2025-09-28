@@ -112,7 +112,7 @@ const FileUploadForm = ({
               disabled={loading}
               className="px-6 py-2 bg-gray-900 dark:bg-background-cardDark dark:hover:bg-background-cardDark dark:hover:text-primary text-white rounded-lg hover:bg-gray-800 transition-colors font-medium disabled:opacity-50"
             >
-              {loading ? "Uploading..." : id == "Add" ? "Submit" : "Edit"}
+              {loading ? "Uploading..." : "Submit"}
             </button>
           </div>
         </div>
