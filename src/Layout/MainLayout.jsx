@@ -13,7 +13,7 @@ export default function MainLayout() {
         isCollapsed={isCollapsed}
         setIsCollapsed={setIsCollapsed}
       />
-      <main className="pt-[1px]">
+      <main className="pt-[1px] dark:bg-background-dark">
         <Outlet />
       </main>
     </div>

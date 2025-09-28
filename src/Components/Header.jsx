@@ -13,7 +13,7 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
   const handleLogout = () => {
     dispatch(logout());
   };
-   if (loading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
   return (
@@ -53,7 +53,9 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
         )}
 
         {!breadcrumb && (
-          <div className="welcome-msg">👋 Good morning , {currentUser?.email}</div>
+          <div className="welcome-msg dark:text-titleColor-dark">
+            👋 Good morning , {currentUser?.email}
+          </div>
         )}
       </div>
       <div className="actions">
