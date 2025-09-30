@@ -18,11 +18,11 @@ import {
   X,
 } from "lucide-react";
 import logo from "../Assets/Logo.svg";
-import { NavLink, useLocation } from "react-router-dom";  
+import { NavLink, useLocation } from "react-router-dom";
 
 const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [expandedItems, setExpandedItems] = useState({});
-  const location = useLocation();  
+  const location = useLocation();
 
   const sidebarData = [
     {
@@ -32,6 +32,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       route: "/",
       type: "single",
     },
+
     { id: "subscription", title: "SUBSCRIPTION", type: "header" },
     {
       id: "media",
@@ -39,6 +40,13 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       icon: Play,
       type: "single",
       route: "/mediaMonitoring/Add",
+    },
+    {
+      id: "workSpace",
+      title: "Work Space",
+      icon: TrendingUp,
+      type: "single",
+      route: "/workspace",
     },
     {
       id: "real-estate",
@@ -198,7 +206,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
           );
         }
 
-         return (
+        return (
           <NavLink
             key={child.id}
             to={child.route}

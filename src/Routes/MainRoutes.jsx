@@ -12,6 +12,8 @@ import SalesAddEdit from "../Pages/Main/Sales";
 import ConcreteAddEdit from "../Pages/Main/Concrete";
 import TextAnalysisAddEdit from "../Pages/Main/TextAnalysis";
 import RealEstateAddEdit from "../Pages/Main/RealEstate";
+import WorkSpace from "../Pages/Main/WorkSpace";
+import WorkSpaceAddEdit from "../Pages/Main/WorkSpace/WorkSpaceAddEdit";
 
 const Dashboard = lazy(() => import("../Pages/Dashboard"));
 
@@ -20,7 +22,7 @@ export default function MainRoutes() {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="*" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="mediaMonitoring" element={<MediaMonitoring />} />
           <Route path="/mediaMonitoring/:id" element={<MediaAddEdit />} />
           <Route path="/restaurant/:id" element={<RestaurantAddEdit />} />
@@ -30,11 +32,15 @@ export default function MainRoutes() {
           <Route path="/concrete/:id" element={<ConcreteAddEdit />} />
           <Route path="/textAnalysis/:id" element={<TextAnalysisAddEdit />} />
           <Route path="/real-estate/:id" element={<RealEstateAddEdit />} />
+
+          <Route path="workspace" element={<WorkSpace />} />
+          <Route path="/workspace/:id" element={<WorkSpaceAddEdit />} />
           <Route path="housePrediction" element={<HousePrediction />} />
           <Route
             path="housePrediction/:id"
             element={<HousePredictionAddEdit />}
           />
+          <Route path="*" element={<Dashboard />} />
         </Route>
       </Routes>
     </Suspense>
