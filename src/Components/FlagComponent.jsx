@@ -32,7 +32,7 @@ function FlagComponent({ data }) {
           type="button"
           onClick={handleCopy}
           disabled={!data}
-          className="w-full mt-3 py-2 rounded-md bg-gray-50 text-gray-800 dark:text-titleColor-dark dark:bg-background-cardDark font-medium cursor-pointer dark:hover:bg-background-cardDark hover:text-primary disabled:opacity-50"
+          className="w-full mt-3 py-2 rounded-md bg-background-cardLight text-gray-800 dark:text-titleColor-dark dark:bg-background-cardDark font-medium cursor-pointer dark:hover:bg-background-cardDark hover:text-primary disabled:opacity-50"
         >
           {copied ? "Copied!" : "Flag"}
         </button>

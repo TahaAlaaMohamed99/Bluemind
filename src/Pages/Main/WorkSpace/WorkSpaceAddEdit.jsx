@@ -56,7 +56,7 @@ const WorkSpaceAddEdit = () => {
         {
           method: id === "add" ? "POST" : "PUT",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "form-data",
             Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify(formData),
@@ -86,8 +86,8 @@ const WorkSpaceAddEdit = () => {
   };
 
   return (
-    <section className="main-section dark:bg-background-dark">
-      <div className="border-2  border-border-light p-5 space-y-4 rounded-lg w-[400px]">
+    <section className="main-section w-[80%] dark:bg-background-dark">
+      <div className=" p-5 space-y-4 rounded-lg w-full">
         <h1 className="text-xl font-semibold dark:text-titleColor-dark">
           {id === "add" ? "Add Workspace" : "Edit Workspace"}
         </h1>
@@ -106,13 +106,13 @@ const WorkSpaceAddEdit = () => {
             placeholder="Workspace name"
             value={formData.name}
             onChange={handleChange}
-            className="border-2 focus:border-primary focus:outline-none w-full  border-border-light rounded-lg p-2 block"
+            className="border focus:border-primary dark:bg-background-cardDark focus:outline-none w-full  border-border-light rounded-lg p-2 block"
           />
         </div>
 
         <div>
           <label
-            className="block mb-1 dark:text-titleColor-dark dark:bg-background-cardDark"
+            className="block mb-1 dark:text-titleColor-dark "
             htmlFor="description"
           >
             Description
@@ -124,7 +124,7 @@ const WorkSpaceAddEdit = () => {
             placeholder="Workspace description"
             value={formData.description}
             onChange={handleChange}
-            className="border-2  focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
+            className="border  focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
           />
         </div>
 
@@ -138,8 +138,8 @@ const WorkSpaceAddEdit = () => {
             className="w-4 h-4"
           />
           <label
-            htmlFor="is_public dark:text-titleColor-dark"
-            className="text-sm"
+            htmlFor="is_public "
+            className="text-sm dark:text-titleColor-dark "
           >
             Is Public
           </label>
@@ -149,7 +149,7 @@ const WorkSpaceAddEdit = () => {
           type="button"
           onClick={handleSave}
           disabled={isLoading}
-          className="bg-[#AFAFAF] w-full rounded-lg font-bold px-4 py-2 disabled:opacity-50"
+          className="bg-[#00113F] text-white dark:bg-background-cardDark w-[179px] h-[44px]  rounded-lg font-bold px-4 py-2 disabled:opacity-50"
         >
           {isLoading ? "Saving..." : "Save"}
         </button>

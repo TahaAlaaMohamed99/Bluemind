@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import logo from "../Assets/Logo.svg";
 import { NavLink, useLocation } from "react-router-dom";
+import { IconDashboard } from "../Assets/Icons/IconsSvg";
 
 const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [expandedItems, setExpandedItems] = useState({});
@@ -28,7 +29,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "dashboard",
       title: "Dashboard",
-      icon: LayoutDashboard,
+      icon: IconDashboard,
       route: "/",
       type: "single",
     },
@@ -168,7 +169,9 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
 
   const renderIcon = (IconComponent, isActive = false) =>
     IconComponent ? (
-      <IconComponent className={`sidebar-icon ${isActive ? "active" : ""}`} />
+      <IconComponent
+        className={`sidebar-icon ${isActive ? "text-primary" : ""}`}
+      />
     ) : null;
 
   const renderChildren = (children, parentId, level = 1) => (
@@ -211,15 +214,17 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
             key={child.id}
             to={child.route}
             className={({ isActive }) =>
-              `sidebar-item ${
+              `sidebar-item  ${
                 isActive
-                  ? "bg-primary text-white dark:bg-primary dark:text-white"
+                  ? "bg-white text-primary  "
                   : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
               }`
             }
           >
             {({ isActive }) => (
-              <div className="sidebar-item-content">
+              <div
+                className={`sidebar-item-content ${isActive && "text-primary"}`}
+              >
                 <span className="sidebar-title">{child.title}</span>
               </div>
             )}
@@ -230,22 +235,11 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   );
 
   return (
-    <div
-      className={`sidebar ${
-        isCollapsed ? "collapsed" : ""
-      } bg-background-light dark:bg-background-dark`}
-    >
-      <div className="sidebar-header border-b border-border-light dark:border-border-dark">
+    <div className={`sidebar  bg-background-light dark:bg-background-dark`}>
+      <div className="sidebar-header  border-border-light dark:border-border-dark">
         <div className="sidebar-logo">
           <img src={logo} alt="sidebar-logo" />
         </div>
-        <button
-          className="sidebar-toggle text-textColor-light dark:text-titleColor-dark hover:bg-gray-100 dark:hover:bg-background-cardDark rounded-lg"
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          aria-label="Toggle Sidebar"
-        >
-          {!isCollapsed ? <X size={20} /> : null}
-        </button>
       </div>
 
       <div className="sidebar-content text-textColor-light dark:text-titleColor-dark">
@@ -267,10 +261,10 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
                 key={item.id}
                 to={item.route}
                 className={({ isActive }) =>
-                  `sidebar-item flex items-center px-3 py-2 rounded-md transition-colors 
+                  `sidebar-item flex items-center p-3 rounded-md transition-colors 
                    ${
                      isActive
-                       ? "bg-primary text-white dark:bg-primary dark:text-white"
+                       ? "bg-white text-primary dark:bg-background-cardDark dark:text-white"
                        : "hover:bg-gray-100 dark:hover:bg-background-cardDark"
                    } 
                    text-textColor-light dark:text-titleColor-dark`
@@ -279,7 +273,9 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
                 {({ isActive }) => (
                   <>
                     {renderIcon(item.icon, isActive)}
-                    <span className="ml-2">{item.title}</span>
+                    <span className={`ml-4 ${isActive && "text-primary"}`}>
+                      {item.title}
+                    </span>
                   </>
                 )}
               </NavLink>

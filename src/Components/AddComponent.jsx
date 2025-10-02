@@ -10,7 +10,7 @@ function AddComponent({
   return (
     <div
       onClick={() => onCardClick()}
-      className={`p-6 border-2  dark:bg-background-dark  border-dashed rounded-xl cursor-pointer transition-all duration-200 hover:shadow-lg`}
+      className={` h-[210px]  w-[474px] p-5  border-2  dark:bg-background-dark  border-dashed rounded-xl cursor-pointer transition-all duration-200 hover:shadow-lg`}
     >
       <div className="flex flex-col items-center text-center space-y-4">
         <div className={`p-4 rounded-full bg-white shadow-sm`}>

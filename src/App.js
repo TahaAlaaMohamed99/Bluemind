@@ -23,7 +23,7 @@ import { useTheme } from "./Hooks/useTheme";
 import AuthRoutes from "./Routes/AuthRoutes";
 import MainRoutes from "./Routes/MainRoutes";
 
-import "./Styles/css/main.css";
+import "./Styles/scss/main.scss";
 import { initializeFromStorage } from "./Store/slices/user-slice";
 
 function App() {

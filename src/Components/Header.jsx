@@ -1,5 +1,5 @@
 import MainActionsTheme from "./MainActionsTheme";
-import { Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { UserMenu } from "./UserMenu";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,21 +18,20 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
   }
   return (
     <header
-      className={`main-header bg-background-light  dark:bg-background-dark  ${
-        isCollapsed ? "sidebar-collapsed" : "sidebar-open"
-      }`}
+      className={`main-header  bg-background-light  dark:bg-background-dark `}
     >
       <div className="header-left">
-        <button
+        {/* <button
           className="sidebar-toggle dark:bg-background-cardDark hover:bg-background-cardDark dark:text-titleColor-dark hover:text-primary"
           onClick={() => setIsCollapsed(!isCollapsed)}
           aria-label="Toggle Sidebar"
         >
           {isCollapsed ? <Menu size={20} /> : <X size={20} />}
-        </button>
+        </button> */}
         {/* <div className="welcome-msg">👋 Good morning , Islam Mohamed</div> */}
         {breadcrumb && (
           <div className="flex items-center text-sm text-gray-600 dark:text-titleColor-dark">
+            <ArrowLeft className="w-5 h-5 me-2 text-gray-600" />
             {breadcrumb.map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 && (

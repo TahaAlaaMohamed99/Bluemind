@@ -4,7 +4,7 @@
 @use "./layout/header";
 @use "./layout/sidebar";
 @use "./layout/auth-layout";
- 
+
 /* components */
 @use "./components/auth-header";
 @use "./components/buttons";
@@ -12,11 +12,15 @@
 @use "./components/form-group";
 @use "./components/loader";
 
+body {
+  @apply dark:bg-background-dark bg-white;
+}
 .main-section {
   @apply p-8;
-  margin-top: 120px;
+  margin-top: 80px;
+  padding-left: 300px;
   @media (max-width: 480px) {
     margin-top: 160px;
+    left: 280px;
   }
 }
-
