@@ -33,7 +33,13 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       route: "/",
       type: "single",
     },
-
+    {
+      id: "workSpace",
+      title: "Work Space",
+      icon: TrendingUp,
+      type: "single",
+      route: "/workspace",
+    },
     { id: "subscription", title: "SUBSCRIPTION", type: "header" },
     {
       id: "media",
@@ -42,13 +48,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
       type: "single",
       route: "/mediaMonitoring/Add",
     },
-    {
-      id: "workSpace",
-      title: "Work Space",
-      icon: TrendingUp,
-      type: "single",
-      route: "/workspace",
-    },
+    
     {
       id: "real-estate",
       title: "Real Estate",

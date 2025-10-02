@@ -5,18 +5,19 @@ import {
   setBreadcrumb,
 } from "../../../Store/slices/layout-slice";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 
 const WorkSpaceAddEdit = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(id);
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     name: "",
     description: "",
     is_public: false,
   });
   const [isLoading, setIsLoading] = useState(false);
+  const accessToken = localStorage.getItem("accessToken");
 
   useEffect(() => {
     dispatch(
@@ -38,52 +39,37 @@ const WorkSpaceAddEdit = () => {
     });
   };
 
-  const handleSave = async () => {
+  const handleSave = async (values) => {
     if (!formData.name || !formData.description) {
       alert("Please fill in all fields!");
       return;
     }
-
+  
     try {
-      setIsLoading(true);
-
-      const accessToken = localStorage.getItem("accessToken");
-
-      const response = await fetch(
-        id === "add"
-          ? "http://54.235.109.101/workspace/workspaces/"
-          : `http://54.235.109.101/workspace/workspaces/${id}/`,
+      const formdata = new FormData();
+      formdata.append("name", formData.name);
+      formdata.append("description", formData.description);
+      formdata.append("is_public", formData.is_public);
+  
+      const response = await axios.post(
+        "http://54.235.109.101/workspace/workspaces/",
+        formdata,
         {
-          method: id === "add" ? "POST" : "PUT",
           headers: {
-            "Content-Type": "form-data",
             Authorization: `Bearer ${accessToken}`,
+            // لو مش محتاج الكوكيز بلاش تبعتها
           },
-          body: JSON.stringify(formData),
         }
       );
-
-      if (response.status === 401) {
-        // في حالة انتهاء الجلسة
-        localStorage.removeItem("accessToken");
-        window.location.href = "/";
-        return;
-      }
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-      console.log("Workspace saved:", result);
-
-      navigate("/workspace");
+  
+      console.log(response?.data);
     } catch (error) {
-      console.error("Error saving workspace:", error);
+      console.error("Login error:", error);
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <section className="main-section w-[80%] dark:bg-background-dark">

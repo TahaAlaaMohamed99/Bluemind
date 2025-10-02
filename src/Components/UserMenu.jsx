@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 export const UserMenu = () => {
   const handleLogout = () => {
-    console.log("Logging out...");
-    localStorage.removeItem("accessToken");
+     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("token");
     window.location.reload()
@@ -19,8 +18,7 @@ export const UserMenu = () => {
   const handleSettings = () => {
     console.log("Opening settings...");
   };
-  const { currentUser, loading } = useSelector((state) => state.user);
-
+ 
   const userMenuItems = [
     {
       label: "profile",
@@ -51,7 +49,7 @@ export const UserMenu = () => {
       }
       menuItems={[
         {
-          label: currentUser?.email,
+          label: "profile",
           icon: <User size={16} />,
           onClick: handleProfile,
           isActive: false,
