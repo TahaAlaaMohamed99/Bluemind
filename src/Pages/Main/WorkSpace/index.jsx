@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   resetBreadcrumb,
   setBreadcrumb,
@@ -8,9 +8,15 @@ import {
 import { useNavigate } from "react-router-dom";
 import AddComponent from "../../../Components/AddComponent";
 
+import Api from "../../../Api/api";
+import { notifyError } from "../../../Utils/Notification";
+
 const WorkSpace = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+
+  const [pageSize, setPageSize] = useState(10);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [workSpacesData, setWorkSpacesData] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setBreadcrumb(["Work Space"]));
@@ -24,6 +30,30 @@ const WorkSpace = () => {
       navigate(`/workspace/add`);
     }
   };
+
+  const getWorkSpaces = async () => {
+    try {
+      const response = await Api.get(
+        `/workspace/workspaces/?page=${pageNumber}&page_size=${pageSize}`
+      );
+
+      if (response && response.data) {
+        setWorkSpacesData(response?.data?.data || []);
+      }
+    } catch (error) {
+      if (error.response) {
+        notifyError("Server error occurred");
+      } else if (error.request) {
+        notifyError("Network error, please try again later");
+      } else {
+        notifyError("Unexpected error occurred");
+      }
+    }
+  };
+
+  useEffect(() => {
+    getWorkSpaces();
+  }, []);
 
   return (
     <div className="main-section dark:bg-background-dark">

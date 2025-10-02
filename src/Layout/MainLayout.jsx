@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
 
 import BlueMindSidebar from "../Components/BlueMindSidebar";
+import { ToastContainer } from "react-toastify";
 
 export default function MainLayout() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -16,6 +17,7 @@ export default function MainLayout() {
       <main className="pt-[1px] left-[280px] dark:bg-background-dark">
         <Outlet />
       </main>
+      <ToastContainer />
     </div>
   );
 }

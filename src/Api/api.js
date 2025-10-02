@@ -7,12 +7,11 @@ const Api = axios.create({
 
 Api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("accessToken");
 
     if (token) {
       const decodedToken = jwtDecode(token);
       const currentTime = Date.now() / 1000;
-
       if (decodedToken.exp < currentTime) {
         console.log("Token is expired");
         localStorage.removeItem("token");
