@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import {
-  LayoutDashboard,
-  Play,
-  Building2,
-  UtensilsCrossed,
-  GraduationCap,
-  Shield,
-  ShoppingCart,
-  HardHat,
-  TrendingUp,
-  CreditCard,
-  Book,
-  Users,
-  HelpCircle,
-  ChevronRight,
-  ChevronDown,
-} from "lucide-react";
+import { TrendingUp, ChevronRight, ChevronDown } from "lucide-react";
 import logo from "../Assets/Logo.svg";
 import { NavLink, useLocation } from "react-router-dom";
-import { IconDashboard } from "../Assets/Icons/IconsSvg";
+import {
+  IconBanking,
+  IconCommerce,
+  IconCommunity,
+  IconConstruction,
+  IconDashboard,
+  IconDocumentation,
+  IconEducation,
+  IconFraud,
+  IconHelpAndCenter,
+  IconMedia,
+  IconRealState,
+  IconRestaurant,
+  IconSales,
+} from "../Assets/Icons/IconsSvg";
 
 const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
   const [expandedItems, setExpandedItems] = useState({});
@@ -43,36 +41,36 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "media",
       title: "Media",
-      icon: Play,
+      icon: IconMedia,
       type: "single",
       route: "/mediaMonitoring/Add",
     },
-    
+
     {
       id: "real-estate",
       title: "Real Estate",
-      icon: Building2,
+      icon: IconRealState,
       type: "single",
       route: "/real-estate/Add",
     },
     {
       id: "restaurant",
       title: "Restaurant",
-      icon: UtensilsCrossed,
+      icon: IconRestaurant,
       type: "single",
       route: "/restaurant/Add",
     },
     {
       id: "education",
       title: "Education",
-      icon: GraduationCap,
+      icon: IconEducation,
       type: "single",
       route: "/education/Add",
     },
     {
       id: "sales",
       title: "Sales",
-      icon: TrendingUp,
+      icon: IconSales,
       type: "single",
       route: "/sales/Add",
     },
@@ -93,7 +91,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "fraud",
       title: "Fraud",
-      icon: Shield,
+      icon: IconFraud,
       type: "expandable",
       children: [
         {
@@ -106,7 +104,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "commerce",
       title: "Commerce",
-      icon: ShoppingCart,
+      icon: IconCommerce,
       type: "expandable",
       children: [
         {
@@ -119,7 +117,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "construction",
       title: "Construction",
-      icon: HardHat,
+      icon: IconConstruction,
       type: "expandable",
       children: [
         {
@@ -132,7 +130,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "banking",
       title: "Banking",
-      icon: CreditCard,
+      icon: IconBanking,
       type: "single",
       route: "/banking",
     },
@@ -140,21 +138,21 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
     {
       id: "documentation",
       title: "Documentation",
-      icon: Book,
+      icon: IconDocumentation,
       type: "single",
       route: "/documentation",
     },
     {
       id: "community",
       title: "Community",
-      icon: Users,
+      icon: IconCommunity,
       type: "single",
       route: "/community",
     },
     {
       id: "help-support",
       title: "Help & Support",
-      icon: HelpCircle,
+      icon: IconHelpAndCenter,
       type: "single",
       route: "/help",
     },
