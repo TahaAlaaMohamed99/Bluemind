@@ -947,8 +947,7 @@ export const IconBanking = ({ width = 19, height = 19, className = "" }) => {
       <g clipPath="url(#clip0_443_11042)">
         <path
           d="M1.68333 10.1543V6.57864M16.7858 6.57864V10.1543"
-          stroke="#1F1F1F"
-          strokeOpacity="0.8"
+          stroke="currentColor"
           strokeMiterlimit="10"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -971,160 +970,140 @@ export const IconBanking = ({ width = 19, height = 19, className = "" }) => {
         <g mask="url(#mask0_443_11042)">
           <path
             d="M0.590156 6.41142C0.39982 6.08257 0.514429 5.65704 0.843245 5.46667L8.85438 0.841634C8.964 0.77786 9.09956 0.746958 9.23407 0.746958C9.36963 0.746958 9.50414 0.77786 9.61375 0.841634L17.6249 5.46667C17.9548 5.65704 18.0684 6.08257 17.878 6.41142C17.6887 6.74129 17.2631 6.85488 16.9343 6.66455L9.23407 2.21891L1.53487 6.66455C1.205 6.85488 0.780491 6.74129 0.590156 6.41142Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M8.68398 18.1289H0.659906C0.571172 18.1289 0.498434 18.0562 0.498434 17.9675V17.0028C0.498434 16.9141 0.571172 16.8413 0.659906 16.8413H17.8092C17.8979 16.8413 17.9707 16.9141 17.9707 17.0028V17.9675C17.9707 18.0562 17.8979 18.1289 17.8092 18.1289H9.90073"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M9.85689 10.1548H17.8092C17.8979 10.1548 17.9707 10.2276 17.9707 10.3163V11.2809C17.9707 11.3696 17.8979 11.4424 17.8092 11.4424H0.659906C0.571172 11.4424 0.498434 11.3696 0.498434 11.2809V10.3163C0.498434 10.2276 0.571172 10.1548 0.659906 10.1548H8.68398"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M1.47602 11.4418H5.27183V12.4353C5.27183 12.521 5.20106 12.5918 5.11538 12.5918H1.63247C1.54679 12.5918 1.47602 12.521 1.47602 12.4353V11.4418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M1.47602 16.8418H5.27183V15.8492C5.27183 15.7625 5.20106 15.6918 5.11538 15.6918H1.63247C1.54679 15.6918 1.47602 15.7625 1.47602 15.8492V16.8418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M2.21349 15.6914H4.53443V12.5921H2.21349V15.6914Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M7.33564 11.4418H11.1324V12.4353C11.1324 12.521 11.0617 12.5918 10.975 12.5918H7.4931C7.40641 12.5918 7.33564 12.521 7.33564 12.4353V11.4418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M7.33564 16.8418H11.1324V15.8492C11.1323 15.8075 11.1157 15.7675 11.0862 15.738C11.0567 15.7085 11.0167 15.6919 10.975 15.6918H7.4931C7.45137 15.6919 7.41137 15.7085 7.38186 15.738C7.35235 15.7675 7.33573 15.8075 7.33564 15.8492V16.8418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M8.07409 15.6914H10.394V12.5921H8.07409V15.6914Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M13.1962 11.4418H16.993V12.4353C16.993 12.521 16.9223 12.5918 16.8356 12.5918H13.3537C13.267 12.5918 13.1962 12.521 13.1962 12.4353V11.4418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M13.1962 16.8418H16.993V15.8492C16.9929 15.8075 16.9763 15.7675 16.9468 15.738C16.9173 15.7085 16.8773 15.6919 16.8356 15.6918H13.3537C13.312 15.6919 13.272 15.7085 13.2425 15.738C13.2129 15.7675 13.1963 15.8075 13.1962 15.8492V16.8418Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M13.9347 15.6914H16.2546V12.5921H13.9347V15.6914Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M9.27292 5.46582C9.73729 5.46582 10.117 5.08613 10.117 4.62172C10.117 4.15734 9.73729 3.77762 9.27292 3.77762C8.80755 3.77762 8.42885 4.15734 8.42885 4.62172C8.42885 5.08613 8.80755 5.46582 9.27292 5.46582Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M5.90492 7.26114C5.90492 7.52133 5.69395 7.7323 5.43376 7.7323C5.3047 7.7323 4.83899 7.73438 4.83899 7.73438V6.78998H5.43376C5.69395 6.78998 5.90492 7.00091 5.90492 7.26114Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M6.08875 8.28429C6.08875 8.58867 5.84199 8.83543 5.53761 8.83543C5.38665 8.83543 4.83895 8.83789 4.83895 8.83789V7.73311H5.53761C5.84199 7.73311 6.08875 7.97987 6.08875 8.28429Z"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M7.08072 8.83789L7.84958 6.81912C7.8653 6.78069 7.91969 6.78062 7.93544 6.81901L8.69734 8.83789"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M7.32048 8.33496H8.46141"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M9.77329 8.83789V6.79409L11.1551 8.795C11.1807 8.83202 11.2081 8.81388 11.2081 8.76888L11.189 6.79026"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M12.5013 6.76466V8.83789"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M13.6166 6.79082L12.5677 7.75494L13.6902 8.83789"
-            stroke="#1F1F1F"
-            strokeOpacity="0.8"
+            stroke="currentColor"
             strokeMiterlimit="10"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -1144,8 +1123,16 @@ export const IconBanking = ({ width = 19, height = 19, className = "" }) => {
     </svg>
   );
 };
-export const IconCommunity = ({ width = "19", height = "19", ...props }) => (
-  <svg width={width} height={height} viewBox="0 0 19 19" fill="none" {...props}>
+
+export const IconCommunity = ({ width = 19, height = 19, className = "" }) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 19 19"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
     <g clipPath="url(#clip0_443_11101)">
       <mask
         id="mask0_443_11101"
@@ -1163,20 +1150,23 @@ export const IconCommunity = ({ width = "19", height = "19", ...props }) => (
           strokeWidth="1.1"
         />
       </mask>
+
       <g mask="url(#mask0_443_11101)">
         <path
           d="M7.22658 13.6548C7.70808 16.081 9.84828 17.9102 12.416 17.9102C13.4777 17.9102 14.4661 17.5972 15.2946 17.0589L17.4526 17.6558L16.8557 15.4978C17.3941 14.6693 17.707 13.6808 17.707 12.6192C17.707 10.0515 15.8778 7.91126 13.4516 7.42976"
           stroke="currentColor"
-          strokeOpacity="0.8"
           strokeWidth="1.1"
           strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M7.1074 0.964881C3.60279 0.964881 0.761719 3.80596 0.761719 7.31057C0.761719 8.56698 1.12696 9.73806 1.75688 10.7236L1.01607 13.4019L3.69441 12.6611C4.67994 13.291 5.85099 13.6562 7.1074 13.6562C10.612 13.6562 13.4531 10.8152 13.4531 7.31057C13.4531 3.80596 10.612 0.964881 7.1074 0.964881Z"
           stroke="currentColor"
-          strokeOpacity="0.8"
           strokeWidth="1.1"
           strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <mask id="path-4-inside-1_443_11101" fill="currentColor">
           <path d="M7.63475 11.0195H6.58006V9.96485H7.63475V11.0195Z" />
@@ -1184,29 +1174,24 @@ export const IconCommunity = ({ width = "19", height = "19", ...props }) => (
         <path
           d="M7.63475 11.0195H6.58006V9.96485H7.63475V11.0195Z"
           fill="currentColor"
-          fillOpacity="0.8"
-        />
-        <path
-          d="M7.63475 11.0195H8.73475V12.1195H7.63475V11.0195ZM6.58006 11.0195V12.1195H5.48006V11.0195H6.58006ZM6.58006 9.96485H5.48006V8.86485H6.58006V9.96485ZM7.63475 9.96485V8.86485H8.73475V9.96485H7.63475ZM7.63475 12.1195H6.58006V9.91953H7.63475V12.1195ZM5.48006 11.0195V9.96485H7.68006V11.0195H5.48006ZM6.58006 8.86485H7.63475V11.0648H6.58006V8.86485ZM8.73475 9.96485V11.0195H6.53475V9.96485H8.73475Z"
-          fill="currentColor"
-          fillOpacity="0.8"
-          mask="url(#path-4-inside-1_443_11101)"
         />
         <path
           d="M5.52538 5.71095C5.52538 4.83721 6.23367 4.12892 7.1074 4.12892C7.98114 4.12892 8.68943 4.83721 8.68943 5.71095C8.68943 6.17325 8.49104 6.58918 8.17485 6.87841L7.1074 7.85547V8.91016"
           stroke="currentColor"
-          strokeOpacity="0.8"
           strokeWidth="1.1"
           strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </g>
+
     <defs>
       <clipPath id="clip0_443_11101">
         <rect
           width="18"
           height="18"
-          fill="currentColor"
+          fill="white"
           transform="translate(0.234375 0.4375)"
         />
       </clipPath>
@@ -1347,7 +1332,7 @@ export const IconRealState = (props) => (
     />
     <path
       d="M5.14062 8.3125H3.03125V7.89062C3.03125 7.81603 3.00162 7.7445 2.94887 7.69175C2.89613 7.63901 2.82459 7.60938 2.75 7.60938C2.67541 7.60938 2.60387 7.63901 2.55113 7.69175C2.49838 7.7445 2.46875 7.81603 2.46875 7.89062V11.6875H1.76562C1.61644 11.6875 1.47337 11.7468 1.36788 11.8523C1.26239 11.9577 1.20312 12.1008 1.20312 12.25V16.75C1.05394 16.75 0.910867 16.8093 0.805377 16.9148C0.699888 17.0202 0.640625 17.1633 0.640625 17.3125V17.875C0.640625 18.0242 0.699888 18.1673 0.805377 18.2727C0.910867 18.3782 1.05394 18.4375 1.20312 18.4375H15.2656C15.4148 18.4375 15.5579 18.3782 15.6634 18.2727C15.7689 18.1673 15.8281 18.0242 15.8281 17.875V17.3125C15.8281 17.1633 15.7689 17.0202 15.6634 16.9148C15.5579 16.8093 15.4148 16.75 15.2656 16.75V12.25C15.2656 12.1008 15.2064 11.9577 15.1009 11.8523C14.9954 11.7468 14.8523 11.6875 14.7031 11.6875H14V9.57812C14 9.50353 13.9704 9.432 13.9176 9.37925C13.8649 9.32651 13.7933 9.29688 13.7188 9.29688C13.6442 9.29688 13.5726 9.32651 13.5199 9.37925C13.4671 9.432 13.4375 9.50353 13.4375 9.57812V10H11.3281V7.94041C11.3285 7.82787 11.2949 7.71784 11.2318 7.62467C11.1687 7.5315 11.079 7.45952 10.9743 7.41812L10.4844 7.22209V4.65625C10.4844 4.58166 10.4547 4.51012 10.402 4.45738C10.3493 4.40463 10.2777 4.375 10.2031 4.375C10.1285 4.375 10.057 4.40463 10.0043 4.45738C9.95151 4.51012 9.92188 4.58166 9.92188 4.65625V6.99709L9.35938 6.77209V5.07812C9.35938 5.00353 9.32974 4.932 9.277 4.87925C9.22425 4.82651 9.15272 4.79688 9.07812 4.79688C9.00353 4.79688 8.932 4.82651 8.87925 4.87925C8.82651 4.932 8.79688 5.00353 8.79688 5.07812V6.54709L8.23438 6.32209V5.5C8.23438 5.42541 8.20474 5.35387 8.152 5.30113C8.09925 5.24838 8.02772 5.21875 7.95312 5.21875C7.87853 5.21875 7.807 5.24838 7.75425 5.30113C7.70151 5.35387 7.67188 5.42541 7.67188 5.5V6.09709L5.91209 5.39397C5.82681 5.35984 5.73446 5.34712 5.64312 5.35692C5.55179 5.36672 5.46424 5.39874 5.38813 5.45018C5.31203 5.50162 5.24967 5.57092 5.20653 5.65202C5.16338 5.73311 5.14076 5.82355 5.14062 5.91541V8.3125ZM6.96875 8.875V16.75H6.40625V14.5C6.40625 14.3508 6.34699 14.2077 6.2415 14.1023C6.13601 13.9968 5.99293 13.9375 5.84375 13.9375H4.15625C4.00707 13.9375 3.86399 13.9968 3.7585 14.1023C3.65301 14.2077 3.59375 14.3508 3.59375 14.5V16.75H3.03125V8.875H6.96875ZM9.71094 16.75H7.53125V15.625H9.71094V16.75ZM5.84375 16.75H4.15625V14.5H5.84375V16.75ZM1.76562 12.25H2.46875V16.75H1.76562V12.25ZM15.2656 17.875H1.20312V17.3125H15.2656V17.875ZM11.3281 15.0625H12.3125V16.75H11.3281V15.0625ZM14.7031 12.25V16.75H14V12.25H14.7031ZM13.4375 10.5625V16.75H12.875V15.0625C12.875 14.9133 12.8157 14.7702 12.7102 14.6648C12.6048 14.5593 12.4617 14.5 12.3125 14.5H11.3281V13.9375H12.5938C12.6683 13.9375 12.7399 13.9079 12.7926 13.8551C12.8454 13.8024 12.875 13.7308 12.875 13.6562C12.875 13.5817 12.8454 13.5101 12.7926 13.4574C12.7399 13.4046 12.6683 13.375 12.5938 13.375H11.3281V12.8125H12.5938C12.6683 12.8125 12.7399 12.7829 12.7926 12.7301C12.8454 12.6774 12.875 12.6058 12.875 12.5312C12.875 12.4567 12.8454 12.3851 12.7926 12.3324C12.7399 12.2796 12.6683 12.25 12.5938 12.25H11.3281V11.6875H12.5938C12.6683 11.6875 12.7399 11.6579 12.7926 11.6051C12.8454 11.5524 12.875 11.4808 12.875 11.4062C12.875 11.3317 12.8454 11.2601 12.7926 11.2074C12.7399 11.1546 12.6683 11.125 12.5938 11.125H11.3281V10.5625H13.4375ZM7.84344 6.77153L8.96844 7.22153L10.7656 7.94041V16.75H10.2734V15.625C10.2734 15.4758 10.2142 15.3327 10.1087 15.2273C10.0032 15.1218 9.86012 15.0625 9.71094 15.0625H7.53125V8.875C7.53125 8.72582 7.47199 8.58274 7.3665 8.47725C7.26101 8.37176 7.11793 8.3125 6.96875 8.3125H5.70312V5.91541L7.84344 6.77153Z"
-      stroke="#1F1F1F"
+      stroke="currentColor"
       strokeOpacity="0.8"
       strokeWidth="0.2"
       mask="url(#path-1-outside-1_443_2998)"

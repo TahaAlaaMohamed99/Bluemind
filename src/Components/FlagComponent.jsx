@@ -21,7 +21,7 @@ function FlagComponent({ data }) {
         </h3>
         <div className="border dark:border-border-dark rounded-md dark:bg-background-cardDark bg-white h-[153px] flex items-center justify-center overflow-auto p-2">
           {data ? (
-            <pre className="text-xs text-gray-700 whitespace-pre-wrap">
+            <pre className="text-xs text-gray-700 dark:text-textColor-dark whitespace-pre-wrap">
               {JSON.stringify(data, null, 2)}
             </pre>
           ) : (

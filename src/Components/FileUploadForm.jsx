@@ -85,17 +85,19 @@ const FileUploadForm = ({
                 )}
               </div>
               <div>
-                <label className="inline-flex items-center border mx-auto border-border-light w-[130px] h-[34px] dark:hover:bg-background-dark dark:hover:text-primary bg-background-cardLight dark:bg-background-dark dark:text-titleColor-dark hover:bg-gray-200 text-gray-700 rounded-lg cursor-pointer transition-colors">
-                  <span className="text-center text-textColor-light w-full">
-                    Browse File
-                  </span>
-                  <input
-                    type="file"
-                    className="hidden"
-                    onChange={handleFileSelect}
-                    accept=".csv,.xlsx,.xls,.txt"
-                  />
-                </label>
+                {!file && (
+                  <label className="inline-flex items-center border mx-auto border-border-light w-[130px] h-[34px] dark:hover:bg-background-dark dark:hover:text-primary bg-background-cardLight dark:bg-background-dark dark:text-titleColor-dark hover:bg-gray-200 text-gray-700 rounded-lg cursor-pointer transition-colors">
+                    <span className="text-center text-textColor-light w-full">
+                      Browse File
+                    </span>
+                    <input
+                      type="file"
+                      className="hidden"
+                      onChange={handleFileSelect}
+                      accept=".csv,.xlsx,.xls,.txt"
+                    />
+                  </label>
+                )}
               </div>
             </div>
           </div>

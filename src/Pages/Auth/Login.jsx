@@ -3,13 +3,14 @@ import CustomInput from "../../Components/Form/CustomInput";
 import TranslationText from "../../Components/TranslationText";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { NavLink } from 'react-router-dom';
-import CustomCheckbox from '../../Components/Form/CustomCheckbox';
-import CustomeBtn from '../../Components/CustomeBtn';
-import { IconFacebook, IconGoogle } from '../../Assets/Icons/IconsSvg';
-import { schemaLogin } from '../../Utils/ValidationUtils';
-import axios from 'axios';
+import { NavLink } from "react-router-dom";
+import CustomCheckbox from "../../Components/Form/CustomCheckbox";
+import CustomeBtn from "../../Components/CustomeBtn";
+import { IconFacebook, IconGoogle } from "../../Assets/Icons/IconsSvg";
+import { schemaLogin } from "../../Utils/ValidationUtils";
+import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { notifyError, notifySuccess } from "../../Utils/Notification";
 
 export default function Login() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -30,25 +31,32 @@ export default function Login() {
   });
 
   const onSubmit = async (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const formdata = new FormData();
       formdata.append("email", data.email);
       formdata.append("password", data.password);
-      const response = await axios.post("http://54.235.109.101/auth/login/", formdata);
+      const response = await axios.post(
+        "http://54.235.109.101/auth/login/",
+        formdata
+      );
       const { access, refresh, user } = response.data;
       localStorage.setItem("accessToken", access);
       localStorage.setItem("refreshToken", refresh);
       localStorage.setItem("user", JSON.stringify(user));
-
+      if (response.status === 200) {
+        notifySuccess("Login Success");
+      } else if (response.status !== 200) {
+        notifyError("Login Failed");
+      }
     } catch (error) {
       console.error("Login error:", error);
+      notifyError(error);
     } finally {
       setIsLoading(false);
-      window.location.href = "/"; 
+      window.location.href = "/";
     }
   };
-
 
   return (
     <div className="from_editor_Auth">

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { notifyError } from "../../../Utils/Notification";
+import { notifyError, notifySuccess } from "../../../Utils/Notification";
 import Api from "../../../Api/api";
 
 const WorkSpaceAddEdit = () => {
@@ -44,8 +44,10 @@ const WorkSpaceAddEdit = () => {
       formdata.append("is_public", values.is_public);
       // 3shan tkdr tst5dm el Api server deh lazem tkon el token valid >> lsa mesh 3mlna enha lma tkon expired ytl3o bra 3la el login || use refreshToken
       const response = await Api.post("/workspace/workspaces", formdata);
-
-      navigate("/workspace");
+      if (response.status === 200) {
+        notifySuccess("Submitted Successfully");
+        navigate("/workspace");
+      }
     } catch (error) {
       notifyError("Something went wrong");
     } finally {
@@ -83,7 +85,7 @@ const WorkSpaceAddEdit = () => {
                   type="text"
                   name="name"
                   placeholder="Workspace name"
-                  className="border-2 focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
+                  className="border-2 dark:text-white focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
                 />
                 <ErrorMessage
                   name="name"
@@ -104,7 +106,7 @@ const WorkSpaceAddEdit = () => {
                   type="text"
                   name="description"
                   placeholder="Workspace description"
-                  className="border-2 focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
+                  className="border-2 dark:text-white focus:border-primary dark:bg-background-cardDark focus:outline-none w-full border-border-light rounded-lg p-2 block"
                 />
                 <ErrorMessage
                   name="description"

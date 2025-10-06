@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { notifyError, notifySuccess, notifyWarning } from "./Notification";
 
 const useFileUpload = (accessToken, endPoint, onLogout) => {
   const [loading, setLoading] = useState(false);
@@ -33,6 +34,7 @@ const useFileUpload = (accessToken, endPoint, onLogout) => {
           onLogout();
         } else {
           // fallback: امسح البيانات وروّح login
+          notifyWarning("Session has ended Please login");
           localStorage.removeItem("accessToken");
           window.location.href = "/";
         }
@@ -40,14 +42,17 @@ const useFileUpload = (accessToken, endPoint, onLogout) => {
       }
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
+        notifyError("Something went wrong");
       }
-
-      const result = await response.json();
-      setData(result);
-      console.log("Success:", result);
+      if (response.status === 200) {
+        notifySuccess("File Uploaded Successfully");
+        const result = await response.json();
+        setData(result);
+        console.log("Success:", result);
+      }
     } catch (err) {
       console.log("Upload failed:", err);
+      notifyError(err.message);
       setError(err.message);
     } finally {
       setLoading(false);
