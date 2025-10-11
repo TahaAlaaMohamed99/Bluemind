@@ -66,9 +66,11 @@ export default function CustomeBtn({
           <Iconloading className="w-4 h-4 text-primary " />{" "}
           {/* Loading spinner */}
           {title && (
-            <TranslationText
-              title={labelLoading[title] || "loading..."} // Dynamically selects a loading message or defaults to "loading"
-            />
+            <span className="dark:text-titleColor-dark">
+              <TranslationText
+                title={labelLoading[title] || "loading..."} // Dynamically selects a loading message or defaults to "loading"
+              />
+            </span>
           )}
         </>
       ) : (

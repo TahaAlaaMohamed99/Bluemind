@@ -5,20 +5,18 @@ export default function FormattedPrediction({ data, type }) {
 
   const predictions = data?.predictions;
 
-  if (type == "number") {
+  if (type === "number") {
     return (
       <div className="space-y-2 text-xs text-gray-800 dark:text-textColor-dark">
-        <ul className=" space-y-2">
+        <ul className="grid grid-cols-3 gap-3">
           {predictions.map((num, i) => (
-            <div className="flex gap-4">
-              <p className="text-primary">
+            <li key={i} className="flex items-center gap-2">
+              <span className="text-primary">
                 {i + 1}
                 {")"}
-              </p>
-              {""}
-              <li key={i}>{num}</li>
-              <br />
-            </div>
+              </span>
+              <span className="dark:text-titleColor-dark">{num}</span>
+            </li>
           ))}
         </ul>
       </div>
