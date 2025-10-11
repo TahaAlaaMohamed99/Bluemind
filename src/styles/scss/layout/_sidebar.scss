@@ -4,7 +4,7 @@
   left: 5px;
   height: 100vh;
   background-color: #f3f6fd;
-  border-right: 1px solid #e9ecef;
+
   display: flex;
   flex-direction: column;
 
@@ -95,10 +95,6 @@
       font-weight: 500;
     }
 
-    .sidebar-icon {
-      color: #1d4ed8;
-    }
-
     .sidebar-arrow {
       color: #1d4ed8;
     }
@@ -145,17 +141,6 @@
       width: 16px;
       height: 16px;
     }
-  }
-}
-
-.sidebar-icon {
-  width: 20px;
-  height: 20px;
-  color: #6b7280;
-  flex-shrink: 0;
-
-  &.active {
-    color: #fff;
   }
 }
 

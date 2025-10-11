@@ -33,6 +33,8 @@ const RestaurantAddEdit = () => {
           accessToken={accessToken}
           endPoint="restaurant/predict"
           id={id}
+          template="restaurant"
+          type="number"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +44,8 @@ const RestaurantAddEdit = () => {
           accessToken={accessToken}
           endPoint="restaurant/predict"
           id={id}
+          template="restaurant"
+          type="number"
         />
       )}
     </>

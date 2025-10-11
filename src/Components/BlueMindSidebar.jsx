@@ -270,9 +270,7 @@ const BlueMindSidebar = ({ isCollapsed, setIsCollapsed }) => {
                 {({ isActive }) => (
                   <>
                     {renderIcon(item.icon, isActive)}
-                    <span className={`ml-4 ${isActive && "text-primary"}`}>
-                      {item.title}
-                    </span>
+                    <span className={`ml-4`}>{item.title}</span>
                   </>
                 )}
               </NavLink>

@@ -33,6 +33,8 @@ const EducationAddEdit = () => {
           accessToken={accessToken}
           endPoint="education/predict"
           id={id}
+          template="education"
+          type="number"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +44,8 @@ const EducationAddEdit = () => {
           accessToken={accessToken}
           endPoint="education/predict"
           id={id}
+          type="number"
+          template="education"
         />
       )}
     </>

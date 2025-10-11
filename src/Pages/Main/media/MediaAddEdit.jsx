@@ -33,6 +33,8 @@ const MediaAddEdit = () => {
           accessToken={accessToken}
           endPoint="media/predict"
           id={id}
+          template="media"
+          type="text"
         />
       )}
       {id !== "Add" && (
@@ -43,6 +45,8 @@ const MediaAddEdit = () => {
           accessToken={accessToken}
           endPoint="media/predict"
           id={id}
+          template="media"
+          type="text"
         />
       )}
     </div>

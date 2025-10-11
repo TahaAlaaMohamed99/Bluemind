@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Upload, ArrowLeft, UploadIcon } from "lucide-react";
 import useFileUpload from "../Utils/useFileUpload";
 import FlagComponent from "./FlagComponent";
+import CustomeBtn from "./CustomeBtn";
 
 const FileUploadForm = ({
   onBack,
@@ -10,6 +11,8 @@ const FileUploadForm = ({
   accessToken,
   endPoint,
   id,
+  template,
+  type,
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [file, setFile] = useState(null);
@@ -75,7 +78,7 @@ const FileUploadForm = ({
                 <UploadIcon className="w-8 h-8  " />
               </div>
               <div>
-                <p className="text-lg font-medium mb-5 text-gray-900 dark:text-titleColor-dark ">
+                <p className="text-lg font-medium mb-2 text-gray-900 dark:text-titleColor-dark ">
                   Choose a file or drag & drop it here
                 </p>
                 {file && (
@@ -86,40 +89,54 @@ const FileUploadForm = ({
               </div>
               <div>
                 {!file && (
-                  <label className="inline-flex items-center border mx-auto border-border-light w-[130px] h-[34px] dark:hover:bg-background-dark dark:hover:text-primary bg-background-cardLight dark:bg-background-dark dark:text-titleColor-dark hover:bg-gray-200 text-gray-700 rounded-lg cursor-pointer transition-colors">
-                    <span className="text-center text-textColor-light w-full">
-                      Browse File
-                    </span>
-                    <input
-                      type="file"
-                      className="hidden"
-                      onChange={handleFileSelect}
-                      accept=".csv,.xlsx,.xls,.txt"
-                    />
-                  </label>
+                  <div>
+                    <label className="inline-flex items-center border mx-auto border-border-light w-[130px] h-[34px] dark:hover:bg-background-dark dark:hover:text-primary bg-background-cardLight dark:bg-background-dark dark:text-titleColor-dark hover:bg-gray-200 text-gray-700 rounded-lg cursor-pointer transition-colors">
+                      <span className="text-center text-textColor-light w-full">
+                        Browse File
+                      </span>
+                      <input
+                        type="file"
+                        className="hidden"
+                        onChange={handleFileSelect}
+                        accept=".csv,.xlsx,.xls,.txt"
+                      />
+                    </label>
+                    {template && (
+                      <div className="mt-3">
+                        <a
+                          href={`/templates/${template}.xlsx`}
+                          download
+                          className="text-xs text-primary   "
+                        >
+                          Download {template} Template
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
           </div>
 
           <div className="flex justify-between items-center mt-6">
-            <button
+            <CustomeBtn
               onClick={() => setFile(null)}
-              className="w-[179px] h-[44px] bg-[#F3F6FD] text-gray-600 dark:bg-background-cardDark dark:hover:text-primary  dark:hover:bg-background-cardDark rounded-lg hover:text-gray-800 font-medium dark:text-titleColor-dark"
-            >
-              Clear
-            </button>
-            <button
+              type="button"
+              title="Clear"
+              className="btn-default  w-[179px] h-[44px]"
+            />
+
+            <CustomeBtn
+              title={"Submit"}
+              isLoading={loading}
               onClick={() => handleSubmit(file)}
               disabled={loading}
-              className="w-[179px] h-[44px] bg-[#00113F] dark:bg-background-cardDark dark:hover:bg-background-cardDark dark:hover:text-primary text-white rounded-lg hover:bg-gray-800 transition-colors font-medium disabled:opacity-50"
-            >
-              {loading ? "Uploading..." : "Submit"}
-            </button>
+              className="btn-primary w-[179px] h-[44px] "
+            />
           </div>
         </div>
 
-        <FlagComponent data={data} />
+        <FlagComponent type={type} data={data} />
       </div>
     </div>
   );

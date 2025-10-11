@@ -33,6 +33,8 @@ const TextAnalysisAddEdit = () => {
           accessToken={accessToken}
           endPoint="TextAnalysis/text_analysis"
           id={id}
+          template="text_analysis"
+          type="text"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +44,8 @@ const TextAnalysisAddEdit = () => {
           accessToken={accessToken}
           endPoint="TextAnalysis/text_analysis"
           id={id}
+          template="text_analysis"
+          type="text"
         />
       )}
     </>

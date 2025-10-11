@@ -33,6 +33,8 @@ const ConcreteAddEdit = () => {
           accessToken={accessToken}
           endPoint="construction/predict"
           id={id}
+          template="Concrete"
+          type="number"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +44,7 @@ const ConcreteAddEdit = () => {
           accessToken={accessToken}
           endPoint="construction/predict"
           id={id}
+          type="number"
         />
       )}
     </>

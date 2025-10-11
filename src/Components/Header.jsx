@@ -6,9 +6,6 @@ import { useSelector } from "react-redux";
 export default function Header({ isCollapsed, setIsCollapsed }) {
   const breadcrumb = useSelector((state) => state.layout.breadcrumb);
 
-
-
- 
   return (
     <header
       className={`main-header  bg-background-light  dark:bg-background-dark `}
@@ -24,7 +21,6 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
         {/* <div className="welcome-msg">👋 Good morning , Islam Mohamed</div> */}
         {breadcrumb && (
           <div className="flex items-center text-sm text-gray-600 dark:text-titleColor-dark">
-            <ArrowLeft className="w-5 h-5 me-2 text-gray-600" />
             {breadcrumb.map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 && (
@@ -46,7 +42,7 @@ export default function Header({ isCollapsed, setIsCollapsed }) {
 
         {!breadcrumb && (
           <div className="welcome-msg dark:text-titleColor-dark">
-            👋 Good morning , 
+            👋 Good morning ,
           </div>
         )}
       </div>

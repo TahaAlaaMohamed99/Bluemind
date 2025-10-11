@@ -33,6 +33,7 @@ const RealEstateAddEdit = () => {
           accessToken={accessToken}
           endPoint="real-estate/predict"
           id={id}
+          template="realEstate"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +43,7 @@ const RealEstateAddEdit = () => {
           accessToken={accessToken}
           endPoint="real-estate/predict"
           id={id}
+          template="realEstate"
         />
       )}
     </>

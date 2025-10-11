@@ -176,7 +176,6 @@
   left: 5px;
   height: 100vh;
   background-color: #f3f6fd;
-  border-right: 1px solid #e9ecef;
   display: flex;
   flex-direction: column;
   z-index: 999;
@@ -258,9 +257,6 @@
   color: #1d4ed8;
   font-weight: 500;
 }
-.sidebar-item.active .sidebar-icon {
-  color: #1d4ed8;
-}
 .sidebar-item.active .sidebar-arrow {
   color: #1d4ed8;
 }
@@ -298,16 +294,6 @@
 .sidebar-item-content .sidebar-arrow svg {
   width: 16px;
   height: 16px;
-}
-
-.sidebar-icon {
-  width: 20px;
-  height: 20px;
-  color: #6b7280;
-  flex-shrink: 0;
-}
-.sidebar-icon.active {
-  color: #fff;
 }
 
 .sidebar-expandable .sidebar-children {
@@ -445,6 +431,34 @@
   @apply bg-secondary dark:bg-primary;
 }
 
+/* remove any height on the track */
+.flag-scroll::-webkit-scrollbar {
+  width: 4px; /* pick 3-6px as you like */
+}
+
+.flag-scroll::-webkit-scrollbar-track {
+  background: #50545b; /* or #f3f6fd / sidebar track color */
+  border-radius: 999px;
+}
+
+.flag-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+  /* create an inner gap so thumb doesn't visually touch the wrapper border */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.flag-scroll:hover::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+}
+
+/* Firefox */
+.flag-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
 /* components */
 .Auth_Header {
   @apply flex items-center justify-between w-full h-16;
@@ -467,7 +481,7 @@
   @apply justify-between;
 }
 .btn.btn-default {
-  @apply bg-background-light dark:bg-background-dark border-none text-titleColor-light dark:text-titleColor-dark hover:text-secondary dark:hover:text-primary gap-1.5;
+  @apply bg-[#F3F6FD] dark:bg-background-cardDark border-none text-titleColor-light dark:text-titleColor-dark hover:text-secondary dark:hover:text-primary gap-1.5;
 }
 .btn.btn-default svg {
   @apply w-4 h-4;

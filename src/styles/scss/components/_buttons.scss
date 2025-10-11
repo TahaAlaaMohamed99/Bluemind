@@ -7,7 +7,7 @@
     @apply justify-between;
   }
   &.btn-default {
-    @apply bg-background-light dark:bg-background-dark  border-none  text-titleColor-light dark:text-titleColor-dark hover:text-secondary dark:hover:text-primary  gap-1.5;
+    @apply bg-[#F3F6FD] dark:bg-background-cardDark   border-none  text-titleColor-light dark:text-titleColor-dark hover:text-secondary dark:hover:text-primary  gap-1.5;
     svg {
       @apply w-4 h-4;
     }

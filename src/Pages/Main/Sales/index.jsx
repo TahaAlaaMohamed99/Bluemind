@@ -33,6 +33,7 @@ const SalesAddEdit = () => {
           accessToken={accessToken}
           endPoint="sales/sales_prediction"
           id={id}
+          template="sales"
         />
       )}
       {id !== "Add" && (
@@ -42,6 +43,7 @@ const SalesAddEdit = () => {
           accessToken={accessToken}
           endPoint="sales/sales_prediction"
           id={id}
+          template="sales"
         />
       )}
     </>
