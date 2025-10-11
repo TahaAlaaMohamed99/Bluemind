@@ -147,7 +147,7 @@ export default function Login() {
           <TranslationText title="noAccount" />
           <NavLink
             className="font-semibold ms-0.5  text-secondary dark:text-primary hover:underline"
-            to={`/Register/${btoa(1)}/${btoa("key")}`}
+            to={`/createAccount`}
           >
             <TranslationText title="createAccount" />
           </NavLink>
