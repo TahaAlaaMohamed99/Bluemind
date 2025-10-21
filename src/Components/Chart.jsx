@@ -82,7 +82,7 @@ export default function ChartComponent({
   return (
     <div className="w-full mt-6 ">
       {title && (
-        <h2 className="text-lg text-center w-[400px]  font-semibold mb-2">
+        <h2 className="text-lg dark:text-titleColor-dark text-center w-[400px]  font-semibold mb-2">
           {title}
         </h2>
       )}
