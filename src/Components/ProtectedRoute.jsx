@@ -5,16 +5,18 @@ import { refreshAccessToken } from "../Redux/Slices/userSlice";
 
 const ProtectedRoute = ({ children }) => {
   const dispatch = useDispatch();
-  const { isAuthenticated, accessToken, refreshToken } = useSelector((state) => state.user);
+  const { isAuthenticated, accessToken, refreshToken } = useSelector(
+    (state) => state.user
+  );
 
   useEffect(() => {
-     const checkTokenValidity = async () => {
+    const checkTokenValidity = async () => {
       if (accessToken && refreshToken) {
         try {
-           const tokenPayload = JSON.parse(atob(accessToken.split('.')[1]));
+          const tokenPayload = JSON.parse(atob(accessToken.split(".")[1]));
           const currentTime = Date.now() / 1000;
-          
-           if (tokenPayload.exp - currentTime < 300) {
+
+          if (tokenPayload.exp - currentTime < 300) {
             await dispatch(refreshAccessToken()).unwrap();
           }
         } catch (error) {

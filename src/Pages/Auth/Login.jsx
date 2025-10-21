@@ -46,15 +46,18 @@ export default function Login() {
       localStorage.setItem("user", JSON.stringify(user));
       if (response.status === 200) {
         notifySuccess("Login Success");
+        console.log("login success");
       } else if (response.status !== 200) {
         notifyError("Login Failed");
+        console.log("Login Failed");
       }
     } catch (error) {
       console.error("Login error:", error);
+      console.log("error", error);
       notifyError(error);
     } finally {
       setIsLoading(false);
-      window.location.href = "/";
+      // window.location.href = "/";
     }
   };
 
