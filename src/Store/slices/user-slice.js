@@ -27,7 +27,7 @@
 //       formdata.append("email", userData.email);
 //       formdata.append("password", userData.password);
 
-//       const response = await axios.post("http://54.235.109.101/auth/login/", formdata);
+//       const response = await axios.post("http://54.156.31.175/auth/login/", formdata);
 //       const data = response.data;
 
 //       console.log(data, "response.data");
@@ -94,7 +94,7 @@ export const signIn = createAsyncThunk(
       formdata.append("email", userData.email);
       formdata.append("password", userData.password);
 
-      const response = await axios.post("http://54.235.109.101/auth/login/", formdata);
+      const response = await axios.post("http://54.156.31.175/auth/login/", formdata);
       const data = response.data;
 
       console.log(data, "response.data");
@@ -133,7 +133,7 @@ export const logout = createAsyncThunk(
         throw new Error("No refresh token available");
       }
 
-      const response = await axios.post("http://54.235.109.101/auth/refresh/", {
+      const response = await axios.post("http://54.156.31.175/auth/refresh/", {
         refresh: refreshToken
       });
 
