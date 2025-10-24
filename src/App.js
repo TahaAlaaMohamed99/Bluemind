@@ -7,7 +7,7 @@ function App() {
   useTheme();
   useLanguage();
   const userToken = localStorage.getItem("accessToken") || null;
-  return userToken !== null ? <AuthRoutes /> : <MainRoutes />;
+  return userToken !== null ? <MainRoutes /> : <AuthRoutes />;
 }
 
 export default App;
