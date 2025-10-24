@@ -7,6 +7,8 @@ import {
   LinearScale,
   Tooltip,
   Legend,
+  PointElement,
+  LineElement,
 } from "chart.js";
 import { Bar, Line, Pie } from "react-chartjs-2";
 
@@ -16,41 +18,59 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   Tooltip,
-  Legend
+  Legend,
+  PointElement,
+  LineElement
 );
 
 export default function ChartComponent({
   type = "bar",
   title = "Predictions Chart",
+  dataType = "number", // "number" or "text"
+  data = [], // could be array or object
 }) {
-  // 🔹 Static Data Examples
-  const dataNumber = {
-    predictions: [45, 60, 75, 30, 90],
-  };
-
-  const dataText = {
-    predictions: {
-      "The product is amazing": "Positive",
-      "The delivery was late": "Negative",
-      "It’s okay but could be better": "Neutral",
-      "Great service": "Positive",
-      "Terrible packaging": "Negative",
-    },
-  };
-
-  // 🟦 Choose which dataset to use
-  const typeOfData = "text"; // "number" or "text"
-  const predictions =
-    typeOfData === "number" ? dataNumber.predictions : dataText.predictions;
-
   let labels = [];
   let values = [];
 
-  if (typeOfData === "number") {
-    labels = predictions.map((_, i) => `Item ${i + 1}`);
-    values = predictions;
-  } else {
-    // Count occurrences of each label (Positive, Negative, etc.)
+  // 🔹 Handle numeric data
+  if (dataType === "number") {
+    // extract predictions array if inside object
+    let predictions = Array.isArray(data)
+      ? data
+      : Array.isArray(data.predictions)
+      ? data.predictions
+      : [];
+
+    // Convert numeric strings to numbers
+    predictions = predictions
+      .map((v) => parseFloat(v))
+      .filter((v) => !isNaN(v));
+
+    // If data is too large, aggregate into groups
+    if (predictions.length > 50) {
+      const chunkSize = Math.ceil(predictions.length / 20);
+      const aggregated = [];
+
+      for (let i = 0; i < predictions.length; i += chunkSize) {
+        const chunk = predictions.slice(i, i + chunkSize);
+        const avg = chunk.reduce((a, b) => a + b, 0) / chunk.length;
+        aggregated.push(avg);
+      }
+
+      labels = aggregated.map((_, i) => `Group ${i + 1}`);
+      values = aggregated;
+    } else {
+      labels = predictions.map((_, i) => `Item ${i + 1}`);
+      values = predictions;
+    }
+  }
+
+  // 🔹 Handle text data
+  if (dataType === "text") {
+    const predictions =
+      typeof data === "object" && !Array.isArray(data)
+        ? data.predictions || data
+        : {};
     const counts = {};
     Object.values(predictions).forEach((label) => {
       counts[label] = (counts[label] || 0) + 1;
@@ -65,7 +85,14 @@ export default function ChartComponent({
       {
         label: title,
         data: values,
-        backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#ef4444"],
+        backgroundColor: [
+          "#3b82f6",
+          "#10b981",
+          "#f59e0b",
+          "#ef4444",
+          "#8b5cf6",
+          "#06b6d4",
+        ],
         borderWidth: 1,
       },
     ],
@@ -79,17 +106,26 @@ export default function ChartComponent({
     },
   };
 
+  // Check for large data
+  const isLargeData = values.length > 50;
+
   return (
-    <div className="w-full mt-6 ">
+    <div className="w-full mt-6">
       {title && (
-        <h2 className="text-lg dark:text-titleColor-dark text-center w-[400px]  font-semibold mb-2">
+        <h2 className="text-lg dark:text-titleColor-dark text-center font-semibold mb-4">
           {title}
         </h2>
       )}
-      <div className="w-[400px] h-[400px]">
-        {type === "bar" && <Bar data={chartData} options={options} />}
-        {type === "pie" && <Pie data={chartData} options={options} />}
-        {type === "line" && <Line data={chartData} options={options} />}
+      <div className={`${isLargeData ? "overflow-x-auto" : ""} w-full`}>
+        <div
+          className={`${
+            isLargeData ? "min-w-[1500px]" : "w-[400px]"
+          } h-[500px]`}
+        >
+          {type === "bar" && <Bar data={chartData} options={options} />}
+          {type === "pie" && <Pie data={chartData} options={options} />}
+          {type === "line" && <Line data={chartData} options={options} />}
+        </div>
       </div>
     </div>
   );

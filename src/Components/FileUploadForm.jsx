@@ -46,6 +46,7 @@ const FileUploadForm = ({
   };
   const titleToChart = title.split(" ");
   const re = `${titleToChart[2]} ${titleToChart[3] ? titleToChart[3] : ""}`;
+  console.log(data, "data");
   return (
     <div className="main-section dark:bg-background-dark  ">
       <div className="mb-6 flex items-center space-x-4 ">
@@ -139,7 +140,9 @@ const FileUploadForm = ({
         </div>
 
         <FlagComponent type={type} data={data} />
-        <ChartComponent type="bar" title={re} />
+        {data && (
+          <ChartComponent data={data} dataType={type} type="bar" title={re} />
+        )}
       </div>
     </div>
   );
