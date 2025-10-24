@@ -31,7 +31,7 @@ const MediaAddEdit = () => {
           onBack={handleBack}
           title="Add New Media Monitoring"
           accessToken={accessToken}
-          endPoint="media/predict"
+          endPoint="media-predict/predict"
           id={id}
           template="media"
           type="text"
@@ -43,7 +43,7 @@ const MediaAddEdit = () => {
           title={id}
           showClassOccurrences={true}
           accessToken={accessToken}
-          endPoint="media/predict"
+          endPoint="media-predict/predict"
           id={id}
           template="media"
           type="text"
