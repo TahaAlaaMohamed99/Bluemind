@@ -19,7 +19,7 @@ const useFileUpload = (accessToken, endPoint, onLogout) => {
       const formData = new FormData();
       formData.append("csv_file", file);
 
-      const response = await fetch(`http://54.235.109.101/${endPoint}/`, {
+      const response = await fetch(`http://54.156.31.175/${endPoint}/`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${accessToken}`,

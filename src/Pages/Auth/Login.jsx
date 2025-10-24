@@ -37,7 +37,7 @@ export default function Login() {
       formdata.append("email", data.email);
       formdata.append("password", data.password);
       const response = await axios.post(
-        "http://54.235.109.101/auth/login/",
+        "http://54.156.31.175/auth/login/",
         formdata
       );
       const { access, refresh, user } = response.data;

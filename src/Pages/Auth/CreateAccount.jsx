@@ -68,7 +68,7 @@ export default function CreateAccount() {
       formData.append("password2", data.password2);
 
       const response = await axios.post(
-        "http://54.235.109.101/auth/signup/",
+        "http://54.156.31.175/auth/signup/",
         formData
       );
 

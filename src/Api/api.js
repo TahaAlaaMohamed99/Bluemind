@@ -2,7 +2,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 const Api = axios.create({
-  baseURL: "http://54.235.109.101",
+  baseURL: "http://54.156.31.175",
 });
 
 Api.interceptors.request.use(
