@@ -86,13 +86,14 @@ export default function ChartComponent({
         label: title,
         data: values,
         backgroundColor: [
-          "#3b82f6",
-          "#10b981",
-          "#f59e0b",
-          "#ef4444",
-          "#8b5cf6",
-          "#06b6d4",
+          "#0144D3", // primary
+          "#00113F", // secondary
+          "#14B8A6", // teal
+          "#F3F6FD", // background.cardLight
+          "#AFAFAF", // textColor.light
+          "#38BDF8", // sky accent
         ],
+
         borderWidth: 1,
       },
     ],
@@ -110,21 +111,33 @@ export default function ChartComponent({
   const isLargeData = values.length > 50;
 
   return (
-    <div className="w-full mt-6">
-      {title && (
-        <h2 className="text-lg dark:text-titleColor-dark text-center font-semibold mb-4">
+    <div className="w-full mt-9">
+      {/* {title && (
+        <h2 className="text-lg dark:text-titleColor-dark w-full text-center font-semibold mb-4">
           {title}
         </h2>
-      )}
+      )} */}
       <div className={`${isLargeData ? "overflow-x-auto" : ""} w-full`}>
         <div
           className={`${
-            isLargeData ? "min-w-[1500px]" : "w-[400px]"
-          } h-[500px]`}
+            isLargeData ? "min-w-[1500px]" : "w-full flex justify-around gap-2"
+          } h-[300px] `}
         >
-          {type === "bar" && <Bar data={chartData} options={options} />}
-          {type === "pie" && <Pie data={chartData} options={options} />}
-          {type === "line" && <Line data={chartData} options={options} />}
+          {Array.isArray(type) ? (
+            type.map((item, i) => (
+              <div key={i} className="mb-6">
+                {item === "bar" && <Bar data={chartData} options={options} />}
+                {item === "pie" && <Pie data={chartData} options={options} />}
+                {item === "line" && <Line data={chartData} options={options} />}
+              </div>
+            ))
+          ) : (
+            <>
+              {type === "bar" && <Bar data={chartData} options={options} />}
+              {type === "pie" && <Pie data={chartData} options={options} />}
+              {type === "line" && <Line data={chartData} options={options} />}
+            </>
+          )}
         </div>
       </div>
     </div>

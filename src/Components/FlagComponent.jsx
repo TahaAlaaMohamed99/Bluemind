@@ -17,12 +17,16 @@ function FlagComponent({ data, type }) {
   const predictions = data?.predictions;
 
   return (
-    <div className="lg:col-span-2">
-      <div className="border dark:border-border-dark rounded-lg p-4">
-        <h3 className="text-sm font-medium dark:text-titleColor-dark text-gray-800 mb-2">
-          Class Occurrences
-        </h3>
-        <div className="rounded-md overflow-hidden h-[153px]">
+    <div className="lg:col-span-2 mt-6">
+      <div
+        className={!data ? "border dark:border-border-dark rounded-lg p-4" : ""}
+      >
+        {!data && (
+          <h3 className="text-sm font-medium dark:text-titleColor-dark text-gray-800 mb-2">
+            Class Occurrences
+          </h3>
+        )}
+        <div className="rounded-md overflow-hidden h-[250px]">
           <div className="flag-scroll overflow-auto h-full p-2 border dark:border-border-dark rounded-md dark:bg-background-cardDark bg-white">
             {predictions ? (
               <FormattedPrediction type={type} data={data} />

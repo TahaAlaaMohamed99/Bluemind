@@ -14,6 +14,7 @@ const FileUploadForm = ({
   id,
   template,
   type,
+  charts,
 }) => {
   const [dragActive, setDragActive] = useState(false);
   const [file, setFile] = useState(null);
@@ -45,17 +46,13 @@ const FileUploadForm = ({
     }
   };
   const titleToChart = title.split(" ");
-  const re = `${titleToChart[2]} ${titleToChart[3] ? titleToChart[3] : ""}`;
-  console.log(data, "data");
+  const chartTitle = `${titleToChart[2]} ${
+    titleToChart[3] ? titleToChart[3] : ""
+  }`;
+
   return (
     <div className="main-section dark:bg-background-dark  ">
       <div className="mb-6 flex items-center space-x-4 ">
-        {/* <button
-          onClick={onBack}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-primary" />
-        </button> */}
         <div>
           <h1 className="text-xl font-bold text-gray-900 dark:text-titleColor-dark">
             {title}
@@ -65,10 +62,10 @@ const FileUploadForm = ({
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 ">
-        <div className="lg:col-span-2">
+      <div className="">
+        <div className=" w-full">
           <div
-            className={`border-2 border-dashed dark:border-border-dark rounded-xl py-4 h-[210px]  w-[474px] text-center transition-colors dark:bg-background-cardDark ${
+            className={`border-2 border-dashed dark:border-border-dark rounded-xl py-4 h-[210px]   text-center transition-colors dark:bg-background-cardDark ${
               dragActive ? "border-blue-400 bg-blue-50" : "border-gray-300  "
             }`}
             onDragEnter={handleDrag}
@@ -85,7 +82,7 @@ const FileUploadForm = ({
                   Choose a file or drag & drop it here
                 </p>
                 {file && (
-                  <p className="text-sm text-green-600 mt-2">
+                  <p className="text-sm text-primary mt-2">
                     Selected: {file.name}
                   </p>
                 )}
@@ -138,12 +135,24 @@ const FileUploadForm = ({
             />
           </div>
         </div>
-
-        <FlagComponent type={type} data={data} />
-        {data && (
-          <ChartComponent data={data} dataType={type} type="bar" title={re} />
-        )}
       </div>
+      <FlagComponent type={type} data={data} />
+      {data && (
+        <ChartComponent
+          data={data}
+          dataType={type}
+          type={charts ? charts : "bar"}
+          title={chartTitle}
+        />
+      )}
+      {data && template == "media" && (
+        <ChartComponent
+          data={data}
+          dataType={type}
+          type={"line"}
+          title={chartTitle}
+        />
+      )}
     </div>
   );
 };

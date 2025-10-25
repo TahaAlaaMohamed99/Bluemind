@@ -35,6 +35,7 @@ const TextAnalysisAddEdit = () => {
           id={id}
           template="text_analysis"
           type="text"
+          charts={["bar", "pie"]}
         />
       )}
       {id !== "Add" && (

@@ -35,6 +35,7 @@ const MediaAddEdit = () => {
           id={id}
           template="media"
           type="text"
+          charts={["bar", "pie"]}
         />
       )}
       {id !== "Add" && (

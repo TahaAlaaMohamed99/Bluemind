@@ -5,44 +5,18 @@ export default function FormattedPrediction({ data, type }) {
 
   const predictions = data?.predictions;
 
+  // 🟦 الحالة الأولى: Number Predictions — عرضها في كروت صغيرة
   if (type === "number") {
     return (
-      <div className="space-y-2 text-xs text-gray-800 dark:text-textColor-dark">
-        <ul className="grid grid-cols-3 gap-3">
-          {predictions.map((num, i) => (
-            <li key={i} className="flex items-center gap-2">
-              <span className="text-primary">
-                {i + 1}
-                {")"}
-              </span>
-              <span className="dark:text-titleColor-dark">{num}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
-  // 🟦 الحالة الثانية: Text Analysis — لما تكون predictions عبارة عن object فيه { نص : label }
-  if (type == "text") {
-    return (
-      <div className="space-y-3">
-        {Object.entries(predictions).map(([text, label], index) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {predictions.map((num, i) => (
           <div
-            key={index}
-            className="border-b border-gray-200 dark:border-border-dark pb-2"
+            key={i}
+            className="border dark:border-border-dark bg-white dark:bg-background-cardDark rounded-lg p-3 shadow-sm"
           >
-            <p className="text-xs text-gray-700 dark:text-textColor-dark mb-1">
-              <span className="font-medium text-primary dark:text-primary">
-                Text:
-              </span>{" "}
-              {text}
-            </p>
-            <p className="text-xs">
-              <span className="font-medium text-green-700 dark:text-green-400">
-                Label:
-              </span>{" "}
-              {label}
+            <p className="text-xs text-primary  mb-1">#{i + 1}</p>
+            <p className="text-sm font-medium text-gray-800 dark:text-titleColor-dark">
+              {num}
             </p>
           </div>
         ))}
@@ -50,7 +24,29 @@ export default function FormattedPrediction({ data, type }) {
     );
   }
 
-  // fallback — لو شكل الداتا جديد مش معروف
+  // 🟩 الحالة الثانية: Text Predictions — عرضها في كروت فيها Text + Label
+  if (type === "text") {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {Object.entries(predictions).map(([text, label], index) => (
+          <div
+            key={index}
+            className="border dark:border-border-dark bg-white dark:bg-background-cardDark rounded-lg p-3 shadow-sm"
+          >
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+              Text
+            </p>
+            <p className="text-sm text-gray-800 dark:text-textColor-dark mb-2 ">
+              {text}
+            </p>
+            <p className="text-xs font-medium text-primary ">Label: {label}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // 🟧 fallback — لو شكل الداتا غير معروف
   return (
     <pre className="text-xs whitespace-pre-wrap text-gray-700 dark:text-textColor-dark">
       {JSON.stringify(data, null, 2)}
